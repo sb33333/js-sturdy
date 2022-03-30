@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for 반복문-4</title>
+</head>
+<body>
+    <h1>사용자 입력</h1>
+    <script>
+        const data = parseInt(prompt("숫자 입력: "));
+
+        for(let i = 0; i < data; i++) {
+            document.write(i + "<br>");
+        }
+        
+    </script>
+
+    <script>
+        const num = parseInt(prompt("구구단: "));
+        for (let i = 0; i < 9; i++){
+            document.write(num + " x " + (i + 1) + " = " + num*(i + 1) + "</br>");
+        }
+    </script>
+</body>
+</html>

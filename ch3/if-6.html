@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문-6</title>
+</head>
+<body>
+    <script>
+        // 사용자 입력
+        var score = window.prompt("점수를 입력하세요.");
+        score = parseInt(score);
+
+        // 값 비교
+        if (score >= 90 && score <= 100) {
+            document.write(score + "점. 학점: A");
+        } else if (score >= 80 && score <= 89) {
+            document.write(score + "점. 학점: B");
+        } else if (score >= 70 && score <= 79) {
+            document.write(score + "점. 학점: C");
+        } else {
+            document.write(score + "점. 학점: F");
+        }
+    </script>
+    
+</body>
+</html>

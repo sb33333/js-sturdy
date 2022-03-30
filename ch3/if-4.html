@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문-4</title>
+</head>
+<body>
+    <script>
+        // 사용자 입력
+        var userID = window.prompt("ID를 입력하세요.");
+        var userPW = window.prompt("PASSWORD를 입력하세요.");
+
+        // 값 비교
+        if((userID == "sang") && (userPW == 1111)){
+            alert(userID + "님이 로그인 하셨습니다.");
+        } else if(userID == "sang") {
+            alert("패스워드가 잘못 되었습니다.");
+        } else {
+            alert("아이디가 잘못 입력되었습니다.")
+        }
+    </script>
+    
+</body>
+</html>

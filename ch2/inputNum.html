@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 입력</title>
+</head>
+<body>
+    <script>
+        // prompt는 입력 받은 값을 String으로 반환한다.
+        var input = prompt("숫자를 입력해주세요.", "숫자");
+        alert(typeof(input)); // typeof(input) -> String    
+        
+        var numType = Number(input); // Number() 함수는 입력 받은 값을 number형으로 변환한다.
+        alert(typeof(numType)); // typeof(numType) -> number
+
+        // input에 문자열이 입력되는 경우 Number() 함수를 사용하더라도 number로 형 변환 되지 않고 NaN(Not a Number) 값이 저장된다.
+    </script>
+    
+</body>
+</html>
