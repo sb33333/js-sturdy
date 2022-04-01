@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트로 색상 바꾸기</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div>
+        <ul class="menu" id="menu1">
+            <li>김밥</li>
+            <li>비빔밥</li>
+            <li>떡볶이</li>
+            <li>어묵</li>
+            <li>라면</li>
+        </ul>
+
+        <ul class="menu" id="menu2">
+            <li>아메리카노</li>
+            <li>카페라떼</li>
+            <li>카푸치노</li>
+            <li>모카라떼</li>
+            <li>브루커피</li>
+        </ul>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            // 메뉴 #menu2를 찾는다.
+            let menu2 = document.getElementById("menu2")
+            // #menu2 안에서 li 요소를 찾고 배열로 변수에 저장한다.
+            let liArray = menu2.getElementsByTagName("li");
+            // li 요소에 하나씩 접근하여 color를 변경한다.
+            for (let i = 0; i < liArray.length; i++) {
+                let li = liArray[i];
+                li.style.color = "blue";
+            }
+        }
+    </script>
+</body>
+</html>
