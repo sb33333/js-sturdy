@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩 for 반복문-1 구구단</title>
+</head>
+<body>
+    <h1>구구단</h1>
+    <script>
+        // 아래 중첩 루프는 8 * 9 번 반복한다.
+        // 외부 루프의 초기값 (i)는 한번만 초기화된다.
+        // 내부 루프의 초기값 (j)는 외부 루프가 순환하는 만큼 초기화된다.
+        for (let i = 2; i < 10; i++) {
+            document.write("<div>");
+            document.write("<h3>" + i + "단</h3>");
+            for (let j = 1; j < 10; j++) {
+                document.write(i + " x " + j + " = " + (i * j) + "<br>");
+            }
+            document.write("</div>");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문(do-while)</title>
+</head>
+<body>
+    <h1>1 - 100까지의 합</h1>
+    <script>
+        let sum = 0;
+        let index = 1;
+
+        /* do-while문은 최소 1번의 실행을 보장한다. */
+        let d = false;
+        do {
+            d = confirm("작업을 진행할까요?");
+        } while(d == true)
+        document.write("<br>1 - " + (index - 1) + " 까지의 합" + sum);
+    </script>
+</body>
+</html>

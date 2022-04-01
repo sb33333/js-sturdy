@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>continue 예제</title>
+</head>
+<body>
+    <h1>1부터 100사이의 홀수 출력하기</h1>
+    <script>
+        for (let i = 1; i <= 100; i++) {
+            if(i % 2 == 0) {
+                continue;   // continue 를 실행하면 continue 아래 실행코드를 무시하고 증감식으로 이동한다.
+            }
+            document.write(i + " ");
+        }
+    </script>
+
+<h1>1부터 100사이의 2와 3의 공배수 출력하기</h1>
+<script>
+    for (let i = 1; i <= 100; i++) {
+        if((i % 2 == 0) && (i % 3 == 0)) {
+            document.write(i + " ");
+        }
+    }
+</script>
+    
+
+</body>
+</html>
