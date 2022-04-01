@@ -12,18 +12,16 @@
             // 글자의 위치를 임의로 바꾸기 위한 난수 생성.
             let rnd1 = Math.floor(Math.random() * 20);
             let rnd2 = Math.floor(Math.random() * 40);
-            let rnd3 = Math.floor(Math.random() * 10) + 100;
+            let rnd3 = Math.floor(Math.random() * 3) + 100;
             // 글자 흔들기
             $(".hello .text").css({
                 "bottom" : rnd1, "left" : rnd2
             });
             // 배경 확대
-            $(".hello .text").css({
-                "background-size" : rnd3 + "%"
-            });
+            $(".hello").css({"background-size" : rnd3 + "%"});
         }
         // 지정된 interval 마다 함수( 현재 hello() 함수)를 호출한다.
-        setInterval(hello, 1000);
+        setInterval(hello, 100);
     </script>
 </head>
 <body>
