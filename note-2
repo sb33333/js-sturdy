@@ -1,0 +1,60 @@
+jQuery
+
+  jQuery 개요
+		
+		jQuery is a fast, small, and feature-rich JavaScript library. 
+			<출처: https://jquery.com/>
+		JavaScript라이브러리.
+		여러 브라우저에서 사용할 수 있다.
+		간편하게 HTML 요소 조작, 이벤트, 애니메이션, Ajax 등을 사용할 수 있게 해준다.
+		
+	jQuery를 사용하게 되면...
+		
+		Vanilla JS에 비해 코드 양을 줄일 수 있다.
+		jQuery는 상당히 널리 사용되고 있는 JS 라이브러리이다.
+		
+	jQuery를 사용하려면
+		
+		1) jQuery 파일을 받아서 연결한다.
+			ex:
+				<style src="libs/jquery-3.5.1.min.js"></script>
+		2) CDN을 이용한다.
+			ex:
+				<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+				※ 인터넷이 연결되어야 사용할 수 있다.
+				
+	
+	jQuery사용
+	
+		요소 선택
+			css 선택자를 이용해 html 요소를 찾을 수 있다.
+				ex:
+					let $article = $("#article")
+			
+				id 선택자 	: $("#요소명")
+				class 선택자 	: $(".요소명")
+				요소 선택자	: $("요소명")
+			
+			※ 결합자를 사용할 수 있음.
+				ex:
+					$("#article li")
+			
+			등...
+			
+			※ $() -> '$'이름의 함수를 호출하는 것임.
+			
+			jQuery를 사용해 저장한 객체를 나타내기 위해 변수명을 $변수 로 명명한다.
+				ex:
+					article	-> $article
+					btn 	-> $btn
+					등...
+					
+		Event handler
+		
+			$대상.on("이벤트", 이벤트 리스너);
+			
+			$대상.이벤트함수(이벤트 리스너);
+			
+		CSS 스타일 설정하기
+		
+			$대상.css("스타일 이름", "스타일 값");
