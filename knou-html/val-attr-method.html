@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 출처: 이관용, 『HTML 웹프로그래밍』, 한국방속통신대학교출판문화원
+        val() 입력양식에서 사용자가 입력하거나 선택한 값을 가져올 때 사용
+        attr() 선택한 요소의 속성값을 가져오거나 기존의 속성값을 수정
+    
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>val() attr()</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#getVal").on("click", function() {
+                let getText = $("#text").val();
+                $("#userText").val(getText);
+            });
+
+            $("#amendVal").on("click", function() {
+                let amendText = $("#userText").val();
+                $("#text").val(amendText);
+            });
+
+            $("#earth").on("click", function() {
+                $("img").attr({"src": "../ch4/resources/earth.png", "height": "300px"});
+            });
+
+            $("#flower").on("click", function() {
+                $("img").attr({"src": "../ch4/resources/flower.jpg", "height": "300px"});
+            });
+
+            /* 
+                attr() 메서드 사용법
+                $(선택자) +
+                            attr(속성명, 값)
+                            attr({속성명1: 값1, 속성명2: 값2, ...})
+                            attr(속성명, function(index, currentValue) { ... })
+                            
+            */
+        });
+    </script>
+</head>
+<body>
+    <div>
+
+        <input id="text" type="textarea" readonly>
+    
+        <table>
+            <tr>
+                <td><button id="getVal">val 가져오기</button></td>
+                <td><button id="amendVal">val 수정하기</button></td>
+            </tr>
+        </table>
+
+        <input id="userText" type="textarea">
+    </div>
+
+    <div class="attrExample">
+        <div>
+            <img src="../ch4/resources/earth.png" height="300px">
+        </div>
+        <table>
+            <tr>
+                <td><button id="earth">Earth</button></td>
+                <td><button id="flower">Flower</button></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>

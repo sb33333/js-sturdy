@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img toggle</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#toggleButton").click(function () {
+                $("img#target").toggle(1000);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <img id="target" src="../ch4/resources/flower.jpg" height="200px">
+    </div>
+    
+    <button id="toggleButton">Image toggle button</button>
+</body>
+</html>

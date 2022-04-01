@@ -1,6 +1,6 @@
 jQuery
 
-  jQuery 개요
+	1. jQuery 개요
 		
 		jQuery is a fast, small, and feature-rich JavaScript library. 
 			<출처: https://jquery.com/>
@@ -8,12 +8,12 @@ jQuery
 		여러 브라우저에서 사용할 수 있다.
 		간편하게 HTML 요소 조작, 이벤트, 애니메이션, Ajax 등을 사용할 수 있게 해준다.
 		
-	jQuery를 사용하게 되면...
+	2. jQuery를 사용하게 되면...
 		
 		Vanilla JS에 비해 코드 양을 줄일 수 있다.
 		jQuery는 상당히 널리 사용되고 있는 JS 라이브러리이다.
 		
-	jQuery를 사용하려면
+	3. jQuery를 사용하려면
 		
 		1) jQuery 파일을 받아서 연결한다.
 			ex:
@@ -24,38 +24,87 @@ jQuery
 				※ 인터넷이 연결되어야 사용할 수 있다.
 				
 	
-	jQuery사용
+	4. jQuery사용
 	
-		요소 선택
-			css 선택자를 이용해 html 요소를 찾을 수 있다.
+		1) 요소 선택
+			○ css 선택자를 이용해 html 요소를 찾을 수 있다.
 				ex:
 					let $article = $("#article")
 			
 				id 선택자 	: $("#요소명")
 				class 선택자 	: $(".요소명")
 				요소 선택자	: $("요소명")
-			
-			※ 결합자를 사용할 수 있음.
+				※ $() -> '$'이름의 함수를 호출하는 것임.
+
+			○ 결합자를 사용할 수 있음.
 				ex:
-					$("#article li")
+					$("#article li") 	등...
 			
-			등...
+			○ 속성 선택
+				ex:
+					$("input[type]")  -> input요소 중에서 type 속성을 사용하는 모든 요소를 선택
+					$("input[type='text']")  -> input요소 중에서 type 속성의 값이 text 인 요소를 선택
 			
-			※ $() -> '$'이름의 함수를 호출하는 것임.
 			
-			jQuery를 사용해 저장한 객체를 나타내기 위해 변수명을 $변수 로 명명한다.
+			○ jQuery를 사용해 저장한 객체를 나타내기 위해 변수명을 $변수 로 명명한다.
 				ex:
 					article	-> $article
-					btn 	-> $btn
-					등...
+					btn 	-> $btn 	등...
 					
-		Event handler
+		2) Event handler
 		
-			$대상.on("이벤트", 이벤트 리스너);
+			○ $대상.on("이벤트", 이벤트 리스너);
 			
-			$대상.이벤트함수(이벤트 리스너);
+			○ $대상.이벤트함수(이벤트 리스너);
 			
-		CSS 스타일 설정하기
+		3) CSS 스타일 설정하기
 		
-			$대상.css("스타일 이름", "스타일 값");
-			$대상.css({"스타일 이름" : 스타일 값, "스타일 이름" : 스타일 값, ……});
+			○ $대상.css("스타일 이름", "스타일 값");
+			○ $대상.css({"스타일 이름" : 스타일 값, "스타일 이름" : 스타일 값, ……});
+
+		4) 텍스트 콘텐츠 수정
+			○ text() 메서드
+			○ html() 메서드
+
+		5) DOM 요소 편진
+			○ append() 메서드
+			○ prepend() 메서드
+			○ 선택된 기존 요소 "안에서" 앞(prepend) 또는 뒤(append)에 콘텐츠를 삽입한다.
+				
+			○ before() 메서드
+			○ after() 메서드
+			○ 선택된 기존 요소의 앞과 뒤에 새로운 콘텐츠를 삽입한다.
+			
+			※ 콘텐츠는 텍스트, html태그, dom요소, jQuery 객체가 될 수 있다.
+
+			○ remove() 메서드
+			○ empty() 메서드
+
+		6) jQuery 효과
+
+			○ hide/show
+				$(선택자).hide(속도, 함수);
+				$(선택자).show(속도, 함수);
+				$(선택자).toggle(속도, 함수);
+
+			○ fade 효과
+				.fadeIn()
+				.fadeOut()
+				.fadeToggle()
+				.fadeTo()
+
+			○ 슬라이드 효과
+				.slideUp()
+				.slideDown()
+				.slideToggle()
+
+			○ 애니메이션 효과
+				.animate({CSS속성}, 속도, 콜백함수);
+
+				css 속성을 상대적으로 조절 가능
+					ex:
+						{width: "+=150px"}
+				css 속성을 키워드로 조절 가능
+					ex:
+						{width: "toggle"} <-show, hide, toggle
+						

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        ul {
+            position: relative;
+            list-style-type: none;
+        }
+        li {
+            float: left;
+            display: block;
+        }
+        img {
+            max-width: 100px;
+        }
+
+        #window {
+            width: 100px;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 300px;
+            
+        }
+
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("li").click(function () {
+                console.log($("ul").css("right"));
+                $("ul").animate({right: "+=100px"}, 500);
+                setTimeout(slideCheck(),0);
+                
+            })
+            
+            function slideCheck () {
+                if ($("ul").css("right") >= "200px") {
+                    $("ul").animate({right: "0px"}, 500);
+                }
+            }
+        });
+    </script>
+</head>
+
+
+<body>
+    <div id="window">
+        <div id="container">
+            <ul>
+                <li><img src="../ch4/resources/earth.png"></li>
+                <li><img src="../ch4/resources/flower.jpg"></li>
+                <li><img src="../ch4/resources/ball.png"></li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

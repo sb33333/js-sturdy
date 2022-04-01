@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <style>
+        div {
+            text-align: center;
+            font-size: 2em;
+            width: 400px;
+        }
+        div#answer {
+            display: none;
+        }
+
+        div#question:hover{
+            background-color: aqua;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#question").click(function () {
+                $("#answer").slideToggle(500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="question">
+        <span>클릭하세요</span>
+    </div>
+        
+    <div id="answer">
+        <ul>
+            <li>data1</li>
+            <li>data2</li>
+            <li>data3</li>
+        </ul>
+    </div>
+</body>
+</html>
