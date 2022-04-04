@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역변수와 전역변수</title>
+</head>
+<body>
+    <script>
+        let name = "global";    // 전역 변수 선언과 초기화
+
+        function func1 () {
+            let name = "local1";         // 지역 변수 선언과 초기화
+            document.write(func1.name + " name = " + name + "<br/>");     // 지역 변수인 name 출력.
+        }
+
+        
+
+        function func2 () {
+            let name = "local2";         // 지역 변수 선언과 초기화
+            document.write(func2.name + " name = " + name + "<br/>");     // 지역 변수인 name 출력.
+        }
+
+        function func3 () {
+            name = "local3";         // 지역 변수 선언과 초기화
+            document.write(func3.name + " name = " + name + "<br/>");     // 지역 변수인 name 출력.
+        }
+        document.write("name = " + name + "<br/>");     // 선언된 func1~2 블록 바깥임. 전역 변수가 출력됨.
+
+        func1();
+        func2();
+        document.write("name = " + name + "<br/>");     // 함수 안에서 지역 변수를 사용했기때문에 전역 변수는 바뀌지 않음.
+        func3();
+        document.write("name = " + name + "<br/>");     // func3 에서는 전역 변수를 사용해서 name 값을 덮어썼기 때문에 저장된 값이 변경됨.
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack함수-5-일반함수-풀이</title>
+    <style>
+        .tab-menu {
+            /* 불릿 없애기 */
+            list-style: none;   
+            height: 80px;
+        }
+
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            overflow: hidden;
+            display: inline-block;
+            float: left;
+        }
+
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        /* li중에 선택 되었을 때 */
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+
+        .tab-menu li.menuitem1 {
+            background-image: url("./resources/newbtn.bar.1.png")
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url("./resources/newbtn.bar.2.png")
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url("./resources/newbtn.bar.3.png")
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url("./resources/newbtn.bar.4.png")
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url("./resources/newbtn.bar.5.png")
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url("./resources/newbtn.bar.6.png")
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // 탭 메뉴 코드를 호출
+            tabMenu("#tabMenu1");
+        });
+
+        function tabMenu(selector) {
+            let $tabMenu = null;
+            let $menuItem = null;
+            // 선택한 탭 메뉴를 저장할 변수.
+            let $selectedMenuItem = null;
+
+            function initialize(selector) {
+                $tabMenu = $(selector)
+                
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1"></li>
+        <li class="menuitem2"></li>
+        <li class="menuitem3"></li>
+        <li class="menuitem4"></li>
+        <li class="menuitem5"></li>
+        <li class="menuitem6"></li>
+    </ul>
+    <div>
+        선택한 인덱스 값: <span id="info"></span>
+    </div>
+</body>
+</html>

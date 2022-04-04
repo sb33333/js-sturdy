@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack함수-3-callBack함수-풀이</title>
+
+    <script>
+        //일반적인 함수 선언과 호출
+        function add(n1, n2) {
+            return n1 + n2;
+        }
+
+        let result = add(10, 20);
+        document.write("결과 : " + result + "<br/>");
+
+        // Callback 함수를 사용해보기
+        function addCallBack(n1, n2, callback) {
+            callback(n1 + n2);
+        }
+        // addCallBack에서 callback 할 함수
+        function documentWriter(value) {
+            document.write("결과 : " + value + "<br/>");
+        }
+
+        addCallBack(10, 20, documentWriter);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

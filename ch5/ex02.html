@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-2</title>
+</head>
+<body>
+    <script>
+
+        // 기본적인 함수. 매개변수는 없음.
+        function hello() {
+            document.write(" 반갑습니다. </br>");
+        }
+
+        hello();
+        hello();
+        hello();
+
+        // 매개변수와 리턴값이 있는 함수 만들기.
+        function add(x, y) {    // 매개변수 2개를 받고 있다.
+            let result = x + y;
+            return result;      // 호출한 곳으로 결과를 반환한다.
+        }
+
+        function subtraction(x, y) {    // 매개변수 2개를 받고 있다.
+            let result = x - y;
+            return result;      // 호출한 곳으로 결과를 반환한다.
+        }
+
+        function multiple(x, y) {    // 매개변수 2개를 받고 있다.
+            let result = x * y;
+            return result;      // 호출한 곳으로 결과를 반환한다.
+        }
+
+        let result = add(100, 200);
+        document.write("function add: " + result + "</br>");
+        result = multiple(100, 200);
+        document.write("function multiple: " + result + "</br>");
+        result = subtraction(100, 200);
+        document.write("function subtraction: " + result + "</br>");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-5</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+
+        /*
+            ready() 와 load() 의 차이점
+            ready() : 이벤트는 클라이언트가 사이트를 방문할 때 요청한 
+                HTML문서 객체의 로딩이 끝나면 이벤트를 실행.
+            load() : 외부에 연동된 소스(iframe, img, video 등 외부 리소스)의 
+                로딩이 끝나면 이벤트를 실행.
+
+        */
+        $(function() {
+            $(document).ready(function() {
+                let width = $(".img").width();
+                console.log("ready(): " + width);
+            });
+
+            $(window).load(function() {
+                let width2 = $(".img").width();
+                console.log("load(): " + width2);
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>
+        <!-- 외부에 있는 연동 소스. -->
+        <img src="https://place-hold.it/500x500" class="img">
+    </p>
+    
+</body>
+</html>

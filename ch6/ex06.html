@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-6-익명함수를-응용</title>
+    <style>
+        #container {
+            border: 1px solid blue;
+            line-height: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        let count = 0;          // 전역변수를 선언하고 초기화 함.
+        let $container = null;  // 전역변수를 선언하고 초기화 함.
+
+        $(document).ready(function() {
+            $container = $("#container");
+
+            // append() 문자열을 붙여서 출력하는 함수(메서드)
+            $container.append("<p>" + count + " 안녕하세요. 반갑습니다.</p>");
+            count++;
+
+            //버틀을 클릭하면 익명함수를 실행하여 글자를 붙여서 출력한다.
+            $("#printBtn").click(function() {
+                $container.append("<p>" + count + " 안녕하세요. 반갑습니다.</p>");
+                count++;
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="printBtn">출력하기</button>
+    <div id="container">
+
+    </div>
+</body>
+</html>

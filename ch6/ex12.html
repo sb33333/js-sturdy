@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack함수-2-CallBack함수의-경우</title>
+    <script>
+        // 매개변수로 callback이 들어와서 결과값을 callback함수에 매개변수로 하여
+        // 또 다른 함수를 호출한다.
+        function calculator1(operator, num1, num2, callback) {
+            let result = "";
+
+            switch(operator) {
+                case "+" : 
+                    result = add(num1, num2);
+                    break;
+                case "-" : 
+                    result = subtract(num1, num2);
+                    break;
+                case "*" : 
+                    result = multiple(num1, num2);
+                    break;
+                case "/" : 
+                    result = divide(num1, num2);
+                    break;
+                default : 
+                    result = "지원하지 않는 연산자입니다."
+            }
+            //callback함수를 호출한다.
+            callback(result);
+
+            //위 switch문에서 사용할 각 함수를 중첩함수로 구현.
+            function add(num1, num2) {
+            return num1 + num2;     //각 중첩함수의 return 문.
+            }
+
+            function subtract(num1, num2) {
+                return num1 - num2;
+            }
+
+            function multiple(num1, num2) {
+                return num1 * num2;
+            }
+
+            function divide(num1, num2) {
+                return num1 / num2;
+            }
+            
+        }
+
+        // 각 로직 처리 부분을 담당할 함수를 선언하고 구현한다.
+        function documentWriter(str) {
+            document.write("연산 결과: " + str + "<br/>");
+        }
+
+        function consoleWriter(str) {
+            console.log("연산 결과: " + str);
+        }
+
+        function printer (str, callback) {
+            callback(str);
+        }
+
+        // 로직 구현 부분은 하나, 로직 처리 부분은 여러 형태로 구현했다.
+        // 콜백 함수의 장점은 구현과 처리를 분리함으로서 수정을 유연하게 할 수 있다.
+        calculator1("*", 200, 100, consoleWriter);
+        calculator1("*", 200, 100, documentWriter);
+        printer(9009900, documentWriter);
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-4</title>
+</head>
+<body>
+    <script>
+        /*
+            홀, 짝 검사 프로그램을 함수로 만듦.
+        */
+
+        let num = prompt("숫자를 입력해주세요: ");      // 사용자로부터 값을 입력 받는 부분. 입력 받는 부분을 함수에서 분리하여 입력 방법을 다양하게 바꿀 수 있다.        checkOdd(num);
+
+        num = prompt("숫자를 입력해주세요: ");
+        checkOdd(num);
+        
+        function checkOdd(num) {    //매개변수가 있는 함수.
+            
+            if (num % 2) {
+                document.write(num + "은/는 홀수입니다.<br/>");
+
+            } else {
+                document.write(num + "은/는 짝수입니다.<br/>");
+            }
+        }
+        
+    </script>
+</body>
+</html>

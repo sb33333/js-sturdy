@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-2(jQuery 사용)</title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+
+    /*
+        단독 이벤트 등록 메서드 = 한 대상에 대해 한 가지 동작만 연결할 때
+    */
+        // jQuery를 이용한 마우스 이벤트 등록
+        $(document).ready(function() {
+            // 버튼에 단독 이벤트 등록
+            $("#btn").click(function() {
+                alert("안녕하세요");
+            });
+        });
+
+
+    /*
+        그룹 이벤트 = on 메서드를 이용해서 
+    */
+    </script>
+</head>
+<body>
+    
+
+    <button id="btn">버튼</button>
+</body>
+</html>

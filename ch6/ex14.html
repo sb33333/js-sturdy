@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CallBack함수-4-일반함수-풀이</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //함수를 시작과 동시에 호출하고 있다.
+            checkCount();
+        });
+        //일반함수를 이용한 풀이
+        function checkCount() {
+            let count = 0;
+            $("#startBtn").click(function() {
+                count++;
+                if(count >= 5) {
+                    alert("완료되었습니다.");
+                }
+            });
+        }
+
+
+    </script>
+</head>
+<body>
+    <button id="startBtn">버튼</button>
+</body>
+</html>
