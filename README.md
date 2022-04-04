@@ -1,6 +1,6 @@
 ## js-sturdy
 
-<a href="https://inf.run/dPZT">inflearn - 자바스크립트+jQuery 기초부터 실무까지 : 기초 (1/2)</a>
+<a href="https://inf.run/dPZT">inflearn - 자바스크립트+jQuery 기초부터 실무까지 : 기초 (1/2)</a> <br>
 <a href="https://inf.run/9Gh5">inflearn - 자바스크립트+jQuery 기초부터 실무까지 : 기초 (2/2)</a>
 
 
