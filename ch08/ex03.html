@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-클래스-3-indexOf</title>
+
+    <script>
+        // 문자열의 위치 알아내기
+
+        let str = window.prompt("문자열 입력: ");
+        /*  indexOf() 메서드는 인스턴스 문자열이 인수로 주어진 문자열을 포함하고 있으면 
+            그 위치를 반환하고
+            그렇지 않으면 -1을 반환한다.
+        */
+        let index = str.indexOf("yes");
+
+        if(index >= 0) {
+            alert("문자열에 포함된 검색된 문자열의 위치는 " + index + "입니다.");
+        } else {
+            alert("검색어가 없습니다.");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

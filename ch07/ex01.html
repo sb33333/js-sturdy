@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머-함수-1-setInterval</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #content {
+            border: 5px solid blue;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 30px;
+            font-weight: bold;
+            font-size: 10em;
+            line-height: 200px;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            let $content = $("#content");
+            let count = 0;
+
+            // 익명 함수 풀이
+            setInterval(function() {
+                count++;                //count 변수의 값을 증가
+                $content.text(count);   // text() 를 이용하여 div영역에 출력
+            }, 1000);                   // 1000ms = 1sec
+
+
+            // 일반 함수 풀이
+            function addCount() {
+                count++;
+                $content.text(count);
+            }
+
+            setInterval(addCount, 1000);
+        }); 
+    </script>
+</head>
+<body>
+    <div id="content">
+        0
+    </div>
+</body>
+</html>

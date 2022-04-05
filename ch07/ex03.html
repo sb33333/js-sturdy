@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머-함수-3-clearInterval</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #content {
+            border: 5px solid blue;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            margin: 30px;
+            font-weight: bold;
+            font-size: 8em;
+            line-height: 200px;
+            vertical-align: middle;
+        }
+
+        #stop {
+            font-size: 2em;
+            text-align: center;
+            position: relative;
+            left: 100px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            let $content = $("#content");
+            let count = 0;
+            let timerId = 0;
+
+            // 익명 함수 풀이
+            timerId = setInterval(function() {      //setInterval의 return 값이 timerId
+                count++;                //count 변수의 값을 증가
+                $content.text(count);   // text() 를 이용하여 div영역에 출력
+            }, 500);                   // 1000ms = 1sec
+
+
+            // 일반 함수 풀이
+            function addCount() {
+                count++;
+                $content.text(count);
+            }
+
+            setInterval(addCount, 1000);
+
+
+            $("#stop").click(function() {
+                clearInterval(timerId);
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <div id="content">
+        0
+    </div>
+    <button id="stop">멈춤</button>
+</body>
+</html>

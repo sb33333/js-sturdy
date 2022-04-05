@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머-함수-2-setTimeout</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #content {
+            border: 5px solid blue;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            margin: 30px;
+            font-weight: bold;
+            font-size: 2em;
+            vertical-align: middle;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+
+            let $content = $("#content");
+
+            // setTimeout() 함수는 duratio 후에 callback 함수를 1번 실행한다.
+
+            //익명 함수 풀이
+            setTimeout(function() {
+                $content.text("Hello JavaScript. setTimeout() function is run");
+            }, 3000);
+
+            // 일반 함수 풀이
+            function displayText() {
+                $content.text("Goodbye");
+                $content.css({border : "5px solid red"});
+            }
+
+            setTimeout(displayText, 5000);
+
+        }); 
+    </script>
+</head>
+<body>
+    <div id="content">
+        0
+    </div>
+</body>
+</html>

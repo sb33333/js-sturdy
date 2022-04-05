@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math-클래스-2</title>
+    <script>
+        // Max, Min, floor, Ceil
+        let num1 = prompt("숫자1을 입력하세요.", 0);
+        let num2 = prompt("숫자2를 입력하세요.", 0);
+        alert("입력값 중 작은 값은 " + Math.min(num1, num2));
+
+        alert("입력값 중 큰 값은 " + Math.max(num1, num2));
+    
+        // Math.ceil() , Math.floor()
+        let num = 112;
+        let page = Math.ceil(num / 10);     // Math.ceil() -> 올림
+                                            // Math.floor() -> 내림
+        alert("전체 페이지 수: " + page);   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

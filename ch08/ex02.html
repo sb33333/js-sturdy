@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-클래스-2-charAt()</title>
+    <style>
+        #print {
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            vertical-align: middle;
+            border: 2px solid #591;
+            overflow:scroll
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let str = window.prompt("문자열을 입력하세요.")
+            let $print = $("#print");
+            let index = 0;
+            let timerId = setInterval(function() {
+                // 해당 인덱스의 문자가 ch 변수에 저장됨.
+                let ch = str.charAt(index);
+                // 문자 출력
+                $print.append(ch);
+
+                //다음 문자를 출력하기 위해 index를 옮긴다.
+                index++;
+
+                // 모든 문자를 출력한 경우 타이머를 정지한다.
+                if (index > str.length) {
+                    clearInterval(timerId);
+                    alert("출력이 완료되었습니다");
+                }
+            }, 5);
+        
+        });
+    </script>
+</head>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>

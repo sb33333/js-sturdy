@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저-함수-3=메뉴바-만들기</title>
+    <style>
+        .tab-menu {
+            /* 불릿 없애기 */
+            list-style: none;   
+            height: 80px;
+        }
+
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            overflow: hidden;
+            float: left;
+        }
+
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        /* li중에 선택 되었을 때 */
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+
+        .tab-menu li.menuitem1 {
+            background-image: url("./resources/newbtn.bar.1.png")
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url("./resources/newbtn.bar.2.png")
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url("./resources/newbtn.bar.3.png")
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url("./resources/newbtn.bar.4.png")
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url("./resources/newbtn.bar.5.png")
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url("./resources/newbtn.bar.6.png")
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // 탭 메뉴 코드를 호출
+                tabMenu("#tabMenu1 li");       // <- #tabMenu1 은 <ul> 요소
+            });
+
+        function tabMenu(selector) {
+            // let $tabMenu = null;
+            // let $menuItem = null;
+            
+            // 선택한 탭 메뉴를 저장할 변수.(지역 변수)
+            let $selectedMenuItem = null;
+
+            $(selector).click(function(){       // click 이벤트의 익명 함수에서 tabMenu() 
+                                                // 함수의 지역변수인 $selectedMenuItem을 사용하고 있다.
+                if($selectedMenuItem != null) { // 클로저 현상이 나타난다.
+                    $selectedMenuItem.removeClass("select");
+                }
+
+                $selectedMenuItem = $(this);
+                $selectedMenuItem.addClass("select");
+            });
+
+            // 선택된 메뉴 아이템을 만들어 주는 함수
+            function setSelectItem($item) {
+                // 선택된 메뉴가 있을 경우
+                if($selectedMenuItem != null) {
+                    // 이미 선택된 메뉴를 select 해제한다.
+                    $selectedMenuItem.removeClass("select");
+                }
+                // 매개변수로 들어온 $item을 새로 선택된 메뉴로 지정한다.
+                $selectedMenuItem = $item;
+                // 그 메뉴를 select 클래스를 추가한다.
+                $selectedMenuItem.addClass("select");
+
+                $("#info").html($selectedMenuItem.index());
+            }
+            initialize(selector);
+            initEvent();
+            
+
+        }
+    </script>
+
+</head>
+<body>
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1"></li>
+        <li class="menuitem2"></li>
+        <li class="menuitem3"></li>
+        <li class="menuitem4"></li>
+        <li class="menuitem5"></li>
+        <li class="menuitem6"></li>
+    </ul>
+    <div>
+        선택한 인덱스 값: <span id="info"></span>
+    </div>
+</body>
+</html>

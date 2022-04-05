@@ -1,0 +1,32 @@
+#startBtn {
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+#scoreText {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 300px;
+
+}
+
+#score {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}
+
+.panel {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    border: 2px solid blue;
+    margin-top: 20px;
+}
+
+.panel #fish {
+    position: absolute;
+    left: 240px;
+    top: 165px;
+}

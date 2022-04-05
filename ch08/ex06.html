@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-클래스-6-원하는 문자를 제거하는 방법</title>
+    <script>
+        let str = "반갑습니다 - 홍길동님. JavaScript 공부 중 입니다.";
+        
+        let resultStr = str.slice(0, str.indexOf("-")) + str.slice(str.indexOf("-") + 1, str.length);
+        document.write(resultStr);
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

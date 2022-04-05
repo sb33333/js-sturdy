@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>물고기</title>
+    <style>
+        #panel {
+            width: 600px;
+            height: 300px;
+            border : 2px solid #999;
+            
+        }
+
+        #bar {
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background: #F00;
+        }
+        #fish {
+            position: absolute;
+            left: 50px;
+            top: 120px;
+        }
+
+        #nav {
+            text-align: center;
+            width: 600px;
+            margin-top: 20px;
+
+        }
+        #startBtn, #stopBtn {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // 전역 변수를 선언하고 초기화 함.
+        let $fish = null;
+        let STEP = 50;
+
+        let timerId = 0;
+
+        $(document).ready(function() {
+            // 초기화
+            // 이벤트 등록
+            // 시작하는 함수
+            // 정지하는 함수
+            // 물고기의 움직임
+
+            init();
+            initEvent();
+
+        });
+
+        // 요소 초기화
+        function init() {
+            // 물고기 요소 찾아오기
+            $fish = $("#fish");
+        }
+
+        //이벤트 등록
+        // 시작 버튼, 멈춤 버튼        
+        function initEvent() {
+            $("#startBtn").click(function() {
+                start();
+            });
+
+            $("#stopBtn").click(function() {
+                stop();
+            });
+        }
+
+        // 물고기 움직이기 타이머 실행
+        function start() {
+            if(timerId === 0) {
+                timerId = setInterval(function() {
+                    //물고기 움직이기
+                    moveFish();
+                }, 100);                                // 100ms = 0.1 sec
+            }
+        }
+
+        // 물고기 멈추기 타이머 조작
+        function stop() {
+            console.log(timerId);           // timerId는 정수 값으로 나옴.
+            clearInterval(timerId);
+            timerId = 0;
+        }
+        
+        // 물고기 움직이기
+        function moveFish() {
+            // 물고기가 다음에 할 위치
+            let x = $fish.position().left + STEP;
+
+            // 물고기 이미지의 x위치가 430을 넘을 경우 물고기 이미지의 방향을 바꾼다.
+            if(x >= 430) {
+                // $.attr() 함수는 선택자가 선택한 요소의 속성을 가져온다.
+                $fish.attr("src", "./resources/fish2.png");
+                STEP = -50;
+            }
+
+            // 물고기 위치가 50보다 작은 경우 물고기 이미지의 방향을 바꾼다.
+            if(x <= 50) {
+                // $.attr() 함수는 선택자가 선택한 요소의 속성을 가져온다.
+                $fish.attr("src", "./resources/fish1.png");
+                STEP = 50;
+            }
+
+            $fish.css({left: x});
+        }
+
+    </script>
+    
+</head>
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"></div>
+            <img src="./resources/fish1.png" id="fish">
+        </div>
+        <div id="nav">
+            <button id="startBtn">시작</button>
+            <button id="stopBtn">멈춤</button>
+        </div>
+    </div>
+</body>
+</html>
