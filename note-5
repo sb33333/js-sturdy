@@ -1,0 +1,46 @@
+자바스크립트+jQuery 기초부터 실무까지 : 중급 Part.1
+
+JavaScript와 jQuery
+
+	jQuery 는 JS로 만들어진 라이브러리이다.
+	jQuery 는 JS의 DOM 작업을 쉽게 할 수 있는 기능을 제공한다. 
+		※ jQuery는 JS를 완전히 대체할 수 없는 보조적인 수단
+	
+	
+	참고
+		자바스크립트 DOM(Document Object Model)
+			노드, 스타일, 속성, 이벤트, 위치 및 크기 등을 다룰 수 있는 기능을 포함
+		자바스크립트 BOM(Browser Object Model)
+			브라우저와 관련된 Window, Navigator, Location 등 객체를 포함
+		
+
+문서 객체 모델(DOM)
+
+	DOM 이란
+		웹 화면에 보이는 요소를 조작하기 위한 기능을 가진 라이브러리
+		다양한 HTML 요소들(예: <p>, <ul> 등...)은 DOM객체로 생성되어 페이지를 구성한다.
+		트리(tree)구조를 가진다.
+	
+	
+※ $(document).ready([someFunction]) ↔ window.onload = [someFunction]
+
+	DOM의 기능
+		웹페이지에 보여지는 다양한 요소들을 조작.
+		ex: 
+			이미지 슬라이더
+			마우스 hover에 따른 효과(이벤트 핸들링)
+			서버에서 받은 데이터를 시각 효과를 주어 출력
+			문자, 이미지 등의 색, 크기 등을 조작.
+			
+
+	DOM의 구현
+		DOM	┬	정의부
+			│		W3C에서 규정한 것으로 DOM이 어떻게 되어야 하는지 명세. (IDL로 명세)
+			└	구현부
+					다양한 브라우저가 명세된 규정대로 구현.
+					
+	
+		IDL(Interface Definition Language)
+			DOM의 정의 부분을 만들 때 사용하는 인터페이스 정의를 위한 언어이다.
+			
+			

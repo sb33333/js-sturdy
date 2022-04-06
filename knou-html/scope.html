@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        let myFunction = function() {
+            console.log("function is called");
+        }
+
+        console.dir(myFunction);
+
+        console.dir(myFunction.prototype);
+
+        let myObj = new Object();
+        myObj.name = "hello";
+        myObj.func = myFunction;
+
+        console.dir(myObj);
+        console.log(myObj.func());
+
+
+        function parent() {
+            let a = 100;
+
+            let child = function() {
+                console.log(a);
+            }
+            return child;
+        }
+
+        let inner = parent();
+        inner.prop = "child func";
+        inner();
+        console.dir(inner);
+
+        console.log("=========");
+        var myGlobalValue = "global?";
+        console.log(this.myGlobalValue);
+        console.log(window.myGlobalValue);
+        $(document).ready(function() {
+            console.log(this.myGlobalValue);
+            console.log(window.myGlobalValue);
+            console.log("===========");
+
+            
+
+            var myGlobalValue2 = "global??";            // myGlobalValue2 는 어느 객체에 저장되는가?
+            this.myProp = "hoola";
+            console.dir(this);
+            console.log(window.myGlobalValue2);
+            console.log(this.myGlobalValue2);
+
+            console.log(document.myProp);
+
+            console.log(document.myGlobalValue2);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        function setFavoriteValue(str) {
+            this.favorite = str;
+        }
+
+        setFavoriteValue.apply(document, ["CocaCola"]);
+        console.log(document.favorite);
+        var myFavoriteFood = "hotdog";
+
+        function myFunction() {
+            console.dir(arguments);
+        }
+
+        $(document).ready(function() {
+            console.log(window.document.favorite);
+            console.log(this.favorite);
+            setFavoriteValue.apply(this, ["Pepsi"]);
+            console.log(this.favorite);
+            var myFavoriteDrink = "fanta";      // 어느 객체에 저장되는 걸까?
+            console.dir(this);
+            console.dir(myFavoriteDrink);
+            console.dir(window);
+            
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

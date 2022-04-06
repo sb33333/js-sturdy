@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction() {
+            console.dir(arguments);
+
+            var args = Array.prototype.slice.apply(arguments);
+            console.dir(args);
+        }
+
+        myFunction(1,2,3);
+        console.dir(myFunction);
+        
+        window.onload = function() {
+            document.body.append(document.createElement("hr"));
+        };
+    </script>
+</head>
+
+<body>
+    
+    
+</body>
+</html>
