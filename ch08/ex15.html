@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-클래스-2-split()-메서드를-이용한-동적-메뉴-만들기</title>
+
+    <style>
+        * {
+            font-family: "d2coding", monospace;
+        }
+
+        ul#menu {
+            list-style-type: none;
+            border: 2px solid orange;
+            height: 50px;
+            padding: 20px;
+        }
+
+        #menu li {
+            display: inline-block;
+            padding: 10px;
+            border: 2px solid blue;
+            margin-left: 15px;
+            background-color: aqua;
+        }
+
+        #menu li:hover{
+            background-color: #fff;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let $menu = $("#menu");
+            let menuData = "메뉴2,메뉴3,메뉴4,메뉴5";
+
+            let menuTitles = menuData.split(",");
+            
+            //반복문을 이용해 메뉴 추가
+            for (let i = 0; i < menuTitles.length; i++) {
+                let newItem = "<li>" + menuTitles[i] + "</li>";
+                // 메뉴 아이템 추가
+                $menu.append(newItem);
+            }
+        });
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>메뉴1</li>
+    </ul>
+</body>
+</html>

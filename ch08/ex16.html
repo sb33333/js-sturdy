@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-클래스-3-배열요소-추가하기</title>
+    <style>
+        * {
+            font-family: "d2coding", monospace;
+        }
+    </style>
+    
+</head>
+<script>
+    let menus = ["menu1", "menu2", "menu3", "menu4"];
+    document.write("실행 전: " + menus.join() + "<br/>");
+    
+    // 배열 맨 뒤에 원소를 추가한다.
+    menus.push("menu5");
+    document.write("push 실행 후: " + menus.join() + "<br/>");
+
+    // 배열 맨 앞에 원소를 추가한다.
+    menus.unshift("menu0");
+    document.write("unShift 실행 후: " + menus.join() + "<br/>");
+
+    // 배열 중간에 원소를 추가한다.
+    menus.splice(3, 0, "menu2-2");
+    document.write("splice 실행 후: " + menus.join() + "<br/>");
+
+</script>
+<body>
+    
+    
+</body>
+</html>

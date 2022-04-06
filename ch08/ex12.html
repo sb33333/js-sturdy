@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date클래스-현재-날짜-출력</title>
+
+    <style>
+        #print {
+            width: 500px;
+            height: 250px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid red;
+        }
+        #inner {
+            border: 1px solid aqua;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $inner = $("#inner");
+
+            //Date 클래스의 인스턴스를 얻기
+            let myDate = new Date();
+            
+            let year = myDate.getFullYear();
+            let month = myDate.getMonth() + 1;
+            let date = myDate.getDate();
+            let day = myDate.getDay();  // 0 ~ 6으로 리턴
+            let dayArray = ["일", "월", "화", "수", "목", "금", "토"];
+
+
+            $inner.html(year + "년 " + month + "월 " + date + "일 " + dayArray[day] + "요일");
+        });
+    </script>
+</head>
+<body>
+    <div id="print">
+        <p id="inner">hello</p>
+    </div>
+    
+</body>
+</html>

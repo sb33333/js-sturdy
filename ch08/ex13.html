@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date클래스-시계-만들기</title>
+    <style>
+        #clock {
+            width: 400px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid greenyellow;
+        }
+
+        #text {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script>
+        //전역 변수 선언 초기화
+        let $clock = null;
+        $(document).ready(function() {
+            $clock = $("#text");
+            // 시간을 출력하는 함수 호출
+            runClock();
+        });
+
+        function runClock() {
+            setInterval(showClock, 500);
+
+            // 현재 시간 출력
+            function showClock() {
+                let date = new Date();
+
+                let hour = addZero(date.getHours());
+                let minute = addZero(date.getMinutes());
+                let second = addZero(date.getSeconds());
+
+                let currentTime = hour + " : " + minute + " : " + second;
+                $clock.html(currentTime);
+            }
+
+            //10보다 작은 값을 자릿수 맞추기
+            function addZero(value) {
+                if (value < 10) {
+                    value = "0" + value;
+                }
+                return value;
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <div id="clock">
+        <p id="text">00 : 00 : 00</p>
+    </div>
+</body>
+</html>

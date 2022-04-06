@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-클래스-8-배열-이미지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "d2coding", monospace;
+        }
+
+        .arrBanner {
+            width: 400px;
+            position: absolute;
+            border: 3px solid grey;
+        }
+
+        #arrBanner1 {
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $arrBanner = $(".arrBanner");
+            let index = 0;
+            let imageList = ["canada.png", "england.png", "germany.png", "italia.png", "korea.png", "spain.png", "usa.png"];
+            
+            
+            setInterval(function() {
+                index++;                            //다음 인덱스 구하기
+                if(index >= imageList.length) {     //끝까지 갔으면 인덱스를 0으로 돌리기
+                    index = 0;
+                }
+                let imageName = imageList[index];   //이미지 이름 얻기
+                $arrBanner.attr("src", "../ch07/resources/" + imageName);       // 이미지 요소의 속성 변경
+            }, 500);
+        });
+    </script>
+</head>
+
+<body>
+    <img src="../ch07/resources/canada.png" class="arrBanner" id="arrBanner1">
+</body>
+</html>

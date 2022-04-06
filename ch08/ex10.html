@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-클래스-10-정규-표현식을-이용한-공백-제거</title>
+    <style>
+        
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        let str = "  안녕하세요  반갑습니다.  문자열을  자릅니다.  ";
+        console.log("원본:" + str);
+        // 전체 공백 제거는 자바스크립트의 정규 표현식을 이용해야 한다.
+        console.log("전체:" + str.replace(/(\s*)/g, ""));
+        // 앞 공백 제거
+        console.log("앞 :" + str.replace(/^\s*/, ""));
+        console.log("뒤 :" + str.replace(/\s*$/, ""));
+        /*
+         *  정규표현식
+         *  \s : 공백 문자
+         *  \S : 공백 문자가 아닌 것을 찾는다.
+         *  \s* : *의 의미는 0번 이상 반복됨. 
+         *  * : 앞에 오는 문자를 0번 이상 찾는다.
+         *      ex: "zo*" : "z" 나 "zoo"를 찾는다.
+         *  + : 앞에 오는 문자를 1번 이상 찾는다.
+         *      ex: "zo+" : "zoo"를 찾는다.
+         *  ? : 앞에 오는 문자를 0번 이상 찾는다.
+         *      ex: "a?ve?" : naver에 있는 "ve"를 찾는다.
+         *  /g : 문자열 전체 검색을 의미
+         *  ^ : 입력의 시작 부분을 찾음
+         *  $ : 입력의 끝 부분을 찾음
+         */
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button id="confirm">확인</button>
+    </div>
+
+    <textarea id="output">실행 결과</textarea>
+</body>
+</html>

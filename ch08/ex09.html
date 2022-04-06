@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>String-클래스-8-왼쪽-공백-제거</title>
+    <title>String-클래스-9-오른쪽-공백-제거</title>
     <style>
         body {
             font-size: 20px;
@@ -31,35 +31,37 @@
                 // 입력한 값을 알아내기
                 let value = $input.val();
 
-                // 앞쪽(왼쪽) 공백 문자 제거
-                let result = lTrim(value);
-                $output.val("입력 값:" + value + "\n" + "결과 값:" + result);
+                // 뒤쪽(오른쪽) 공백 문자 제거
+                let result = rTrim(value);
+                $output.val("입력 값:" + value + "결과 값:" + result);
             });
         });
 
-        // lTrim() 함수 구현
-        function lTrim(str) {
+        // rTrim() 함수 구현
+        function rTrim(str) {
             // 문자열이 없는 경우
             if (str.length <= 0) {
                 return "";
             }
 
-            // 문자열의 첫 번째 문자를 검사해서 공백이 아니라면 그대로 반환
-            let firstChar = str.charAt(0);
-            if (firstChar != " ") {
+            // 문자열의 뒤에서 첫 번째 문자를 검사해서 공백이 아니라면 그대로 반환
+            // str.length - 1 : 배열의 인덱스는 0부터 시작해서 -1 함.
+            let lastChar = str.charAt(str.length - 1);
+            if (lastChar != " ") {
                 return str;
             }
             let index;
             // 위 두 개의 if를 통과한 문자열은 공백이 있는 문자열임.
-            for (index = 1; index < str.length; index++) {
+            for (index = str.length - 1; index >= 0; index--) {
                 // 공백 문자가 아닐 때까지 찾기
                 let ch = str.charAt(index);
                 if (ch != " ") {        // 인덱스 위치의 character가 공백이 아니라면 문자라는 뜻임. 인덱스 위치 확인.
                     break;
                 }
             }
-            // 찾아낸 공백 아닌 문자 위치(=index)부터 문자열의 끝까지 slice한다
-            let result = str.slice(index, str.length);
+            // 문자열의 처음(index = 0)부터 index까지 문자열
+            // 반복문에서 마지막 조건 검사를 위해 index가 하나 더 줄었으므로 ++index 처리를 함.
+            let result = str.slice(0, ++index);
             return result;
         }
     </script>

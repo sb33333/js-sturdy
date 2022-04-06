@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-클래스-4-배열요소-삭제하기</title>
+    <style>
+        * {
+            font-family: "d2coding", monospace;
+        }
+    </style>
+    <script>
+        let menus = ["menu1", "menu2", "menu3", "menu4"];
+        document.write("실행 전: " + menus.join() + "<br/>");
+
+        // 배열 첫 번째 원소 삭제 shift()
+        menus.shift();
+        document.write("shift() 실행 후: " + menus.join() + "<br/>");
+
+        // 배열 마지막 원소 삭제 pop()
+        menus.pop();
+        document.write("pop() 실행 후: " + menus.join() + "<br/>");
+
+        menus.push("menu5");
+        menus.push("menu6");
+        document.write("원소 추가: " + menus.join() + "<br/>");
+        // 배열 n번째 원소 삭제 splice();
+        menus.splice(2, 1);
+        document.write("splice(2, 1) 실행 후: " + menus.join() + "<br/>");
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
