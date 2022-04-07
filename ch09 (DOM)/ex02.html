@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-2-요소-접근</title>
+    <style>
+        *{
+            font-family: "d2coding", monospace;
+        }
+
+        #container {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            padding: 20px 10px 0 50px;
+            border: 2px solid rgb(149, 149, 149);
+        }
+
+        #img_load, #desc {
+            float: left;
+        }
+        #img_load img {
+            border: 1px solid #CCC;
+        }
+
+        #img_load {
+            margin-right: 10px;
+        }
+        .spn {
+            font-weight: 700;
+            font-size: 1.0em;
+            font-style: italic;
+        }
+
+        .bright {
+            color: blue;
+
+        }
+
+        p {
+            font-size: 0.9em;
+            line-height: 1.4;
+
+        }
+
+        h1 {
+            font-size: 1.8em;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: #222;
+        }
+
+        #desc{
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="text_head">빌딩</h1>
+        <div id="img_load">
+            <img src="./resources/mosque-g471dbd01b_640.jpg" width="200px">
+        </div>
+        <div id="desc">
+            <h2>information</h2>
+            <p> Lorem ipsum dolr lobortis, <span class="spn">Quisque ut nunc quis sem  lorem.</span></p>
+            <h2>Note</h2>
+            <p class="bright">Morbi porttitor  dolor ut commodo sollicitudin.</p>
+        </div>
+    </div>
+</body>
+</html>

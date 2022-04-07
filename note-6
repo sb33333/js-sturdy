@@ -1,0 +1,33 @@
+jQuery
+
+	JavaScript로 만들어진 라이브러리.
+	JS의 DOM 작업을 쉽게 할 수 있도록 도와주는 기능을 제공한다.
+	크로스 브라우징 라이브러리 (= 브라우저 호환성)
+	
+
+jQuery의 기능
+	1) JS DOM객체의 속성 조작, 기능 사용, 노드 추가 등등...
+	2) Ajax 를 더욱 쉽게 사용할 수 있다.
+	3) 다양한 플러그인
+	4) 손쉬운 애니메이션 효과 적용
+	5) 모바일 화면 제작을 도와주는 jQuery Mobile
+	
+	※ 세부 내용은 교안 참조.
+	※ api 문서 참조: https://api.jquery.com/
+	
+	
+jQuery는...
+	jQuery는 클래스이다.
+	JS prototype으로 만들어진 클래스이다.
+	jQuery를 배운다 → jQuery 메서드를 배운다.
+	JavaScript를 배우지 않아도 jQuery만으로 충분할까? 
+		→ DOM 처리 외 많은 부분은 JavaScript 만들어진다.
+		→ jQuery를 잘 알기 위해서는 JS 지식이 필요하다.
+
+
+실습 예제
+
+	ex01	JavaScript와 jQuery를 이용한 요소 탐색
+	ex02	JavaScript와 jQuery를 이용한 요소 탐색
+	ex03	JavaScript와 jQuery를 이용한 요소 탐색
+	ex04	크로스 브라우징을 위한 JavaScript와 jQuery

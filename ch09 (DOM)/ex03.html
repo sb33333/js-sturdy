@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-3-속성-변경</title>
+    <style>
+        *{
+            font-family: "d2coding", monospace;
+        }
+
+        #container {
+            width: 600px;
+            margin: 0 auto;
+        }
+        
+        #product-picture, #desc {
+            float: left;
+        }
+        #product-picture {
+            margin: 20px 20px auto 10px;
+        }
+        #cup {
+            box-shadow: 1px 1px 2px #EEE;
+            outline: 1px dashed #EEE;
+            outline-offset: -7px;
+        }
+        #small-picture {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .small {
+            width: 60px;
+            height: 60px;
+        }
+
+        #small-picture img:hover {
+            cursor: pointer;
+        }
+        #desc {
+            width: 300px;
+            padding-top: 20px;
+            margin-bottom: 50px;
+        }
+        .blue-text {
+            color: blue;
+            font-weight: bold;
+        }
+        #desc button {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        #desc ul {
+            list-style: none;
+        }
+        #desc li{
+            font-size: 0.9em;
+            line-height: 1.8;
+        }
+    </style>
+    <script src="./js/ex03-cup.js">
+        
+    </script>
+</head>
+<body>
+    <div id="container">
+        <h1 id="heading">커피잔의 종류</h1>
+        <div id="product-picture">
+            <img src="./resources/coffee-pink.jpg" id="cup" width="200px">
+            <div id="small-picture">
+                <img src="./resources/coffee-pink.jpg" class="small">
+                <img src="./resources/coffee-blue.jpg" class="small">
+                <img src="./resources/coffee-gray.jpg" class="small">
+            </div>
+        </div>
+        <div id="desc">
+            <ul>
+                <li>상품명 : 커피잔</li>
+                <li class="blue-text">판매가 : 9,000원</li>
+                <li>배송비 : 3,000원</li>
+                <li>적립금 : 150원</li>
+                <li>제조일 : 2020.10.20.</li>
+                <button>장바구니 담기</button>
+            </ul>
+            <a href="#" id="view">상세 설명 보기</a>
+        </div>
+    </div>
+</body>
+</html>
