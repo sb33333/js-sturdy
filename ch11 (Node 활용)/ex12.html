@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-특정-자식-노드-찾기-children()-이용</title>
+    <link rel="stylesheet" href="./css/sample-boxes.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 자식 노드 중 특정 노드를 찾고 싶을 때.
+            // children() 메서드의 인자로 css 선택자를 넣자.
+            let $samplePageDiv = $("#samplePage");
+            $samplePageDiv.children("#header").css("border", "2px solid purple");
+
+            // 특정 자식 노드의 노드 갯수.
+            console.log($samplePageDiv.children("#header").length);
+
+            // find() 메서드를 사용하면 자식 및 자손까지 탐색한다.
+            console.log($samplePageDiv.find(".test1").length);
+        });
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        샘플페이지. (div, id=samplePage, class=page)
+        <div id="header">
+            헤더 영역(div, id="header")
+        </div>
+        <div id="content" class="sample-content">
+            노드 찾기 (div id="content" class="sample-content")
+            <ul class="menu">
+                일반 노드 찾기(ul, class="menu")
+                <li data-value="1">id로 찾기(li, data-value = "1")</li>
+                <li class="select">tag로 찾기(li, class="select")</li>
+                <li data-value="2">class로 찾기(li, data-value = "2")</li>
+                <li class="test1">속성으로 찾기(li, class="test1")</li>
+            </ul>
+            <div class="content-data">
+                자식 노드 찾기(div class="content-data")
+                <p class="test1">1. 모든 자식 노드 찾기(p, class="test1")</p>
+                <p>2. 특정 자식 노드 찾기(p)</p>
+                <p class="test2">3. 마지막 자식 노드 찾기(p, class="test2")</p>
+            </div>
+
+        </div>
+        <div id="footer">푸터 영역(div, id="footer")</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-다루기-each</title>
+
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log($("li").text());
+
+            // each() 메서드에 들어가는 익명함수 function()에 index 만 인자로 넣는다면
+            // index는 노드 인덱스 번호를 나타낸다. 
+            // $(".container li").each(function(index) {
+            //     document.write("index: " + index + "<br/>");
+            // });
+
+            // 익명함수의 인자에 index와 element를 넣으면
+            // 함수식에서 해당 index에 해당하는 element를 사용할 수 있다.
+            // .textContent = DOM 객체의 text 값 속성.
+            $(".container li").each(function(index, item) {
+                console.dir(item);
+                document.write("index: " + index + ", item: " + item.textContent +"<br/>");
+            });
+
+        });
+        
+    </script>
+</head>
+<body>
+    <ul class="container">
+        <li>선수1김</li>
+        <li>선수2남</li>
+        <li>선수3락</li>
+        <li>선수4갇</li>
+        <li>선수5삭</li>
+    </ul>
+</body>
+</html>

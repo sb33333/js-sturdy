@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$()함수-알아보기-1</title>
+    <style>
+        *{
+            font-family: "d2coding",monospace;
+        }
+    </style>
+
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $()함수가 return 하는 객체는 div요소의 dom객체를 반환한다.
+            // $()함수의 return 값은 DOM객체 중 하나인 div객체 HTMLDivElement요소가 반환된다.
+            // div객체가 반환되어 css()를 사용할 수 있다.
+            let $divs = $("div");
+            console.dir($divs);
+            console.dir($divs[0]);
+            $divs.css({border: "3px solid #0F0"});
+            
+        });
+    </script>
+
+    
+</head>
+<body>
+    <div>메뉴1</div>
+    <div>메뉴2</div>
+    <div>메뉴3</div>
+    <div>메뉴4</div>
+    <p>문장1</p>
+    <p>문장2</p>
+    <p>문장3</p>
+    <p>문장4</p>
+    
+</body>
+</html>

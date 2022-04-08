@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript-jQuery-5</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }   
+        #panel {
+            width: 600px;
+            height: 300px;
+            border: 2px solid black;
+            position: relative;
+        }
+        #earth {
+            position: absolute;
+            left: 50px;
+            top: 140px;
+            width: 50px;
+        }
+        #bar {
+            position: absolute;
+            left: 50px;
+            top : 190px;
+            width: 500px;
+            height: 15px;
+            background-color: #f30;
+        }  
+        #nav {
+            text-align: center;
+            width: 600px;
+            
+        } 
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- 버튼을 클릭했을 때 JS로 img가 움직이도록 만들기 -->
+    <script>
+        window.onload = function() {
+            let earth = document.getElementById("earth");
+            let button = document.getElementById("startBtn");
+            let left = 50;
+            let timerId = 0;
+
+            // #startBtn 이벤트 등록
+            button.addEventListener("click", moveImg);
+            
+            function moveImg() {
+                timerId = setInterval(function () {
+                    left++;
+                    earth.style.left = left + "px";
+                    console.log(earth.style.left);
+                    if (left == 400) {
+                        clearInterval(timerId);
+                        timerId = 0;
+                    }
+                }, 1);
+            }
+            
+            
+        }
+    </script>
+
+    <!-- jQuery를 사용해 구현 -->
+    <!-- <script>
+        $(document).ready(function() {
+            let earth = $("#earth");
+            $("#startBtn").on("click", function() {
+                earth.animate({left: "400px"}, 2000);
+            })
+        });
+    </script> -->
+</head>
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"></div>
+            <img src="../ch04 (jQuery 기초)/resources/earth.png" id="earth">
+        </div>
+        <div id="nav">
+            <button id="startBtn">버튼</button>
+        </div>
+    </div>
+</body>
+</html>

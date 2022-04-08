@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-index()메서드-주의점</title>
+    <link rel="stylesheet" href="./css/sample-boxes.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("ul li a").click(function() {
+                // 연속해서 태그가 있지 않은 경우 jQuery객체.index()메서드 사용할 때
+                // index 값이 0이 된다.
+                // 각 a 요소는 <li> 요소의 0번째 자식 노드이기 때문?
+                console.log("index" + $(this).index());
+                
+                // 이런 경우 $대상.index($대상);
+                //          $대상.index($DOM 객체); 방식으로 해야한다.
+                let $aList = $("ul li a");
+                console.log($aList.index(this));
+
+                console.log("=========");
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+
+    </ul>
+</body>
+</html>

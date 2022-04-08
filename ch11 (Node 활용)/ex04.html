@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-다루기-eq()-get()</title>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            cursor: pointer;
+        }
+        div {
+            width: 50px;
+            height: 50px;
+            float: left;
+            background-color: brown;
+            margin: 10px;
+        }
+        span {
+            color: black;
+        }
+    </style>
+    <script>
+        // div를 찾아서 색상 바꾸기
+        $(document).ready(function() {
+            // 복수의 div요소를 찾아 배열로 저장.
+            let $divList = $("div");
+            //eq()메서드는 jQuery 객체를 반환한다.
+            let $div_2 = $divList.eq(1);
+            $div_2.css({backgroundColor: "blue"});
+
+            //get()메서드는 Element 객체를 반환한다.
+            //$divList.get(0) ↔ $divList[0] 같은 객체를 반환한다.
+            let div_1 = $divList.get(0);
+            div_1.style.backgroundColor = "#568272";
+
+        });
+    </script>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+
+</body>
+</html>

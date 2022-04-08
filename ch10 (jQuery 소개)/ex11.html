@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$()함수-알아보기-2</title>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document). ready(function() {
+            const $button = $("#addNew");
+            const $menu = $("#menu");
+            const $input = $("#textInput");
+
+            $button.on("click", function() {
+                let text = $input.val();
+                if (text == "") {
+                    text = "default menu";
+                }
+                // ul의 인스턴스의 append() 메서드를 이용해서 동적으로 요소를 추가하고 있다.
+                $menu.append("<li>" + text + "</li>");      
+            });
+            
+        });
+        
+    </script>
+</head>
+<body>
+    <button id="addNew">추가</button>
+    <input type="text" id="textInput">
+    <ul id="menu">
+        <li>menu</li>
+    </ul>
+</body>
+</html>

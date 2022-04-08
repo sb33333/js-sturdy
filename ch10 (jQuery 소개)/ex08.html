@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ready()함수의-다양한-방법</title>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            alert("방법1: jQuery(document).ready(function() {})");
+        });
+
+        jQuery(function() {
+            alert("방법2: jQuery(function() {}); ");
+        });
+
+        $(document).ready(function() {
+            //jQuery() 대신 $()을 사용함. 
+            //추천 방법
+            alert("방법3: $(document).ready(function() {});");
+        });
+
+        $(function() {
+            alert("방법4: $(function() {});")
+        });
+
+    </script>
+</head>
+<body>
+    <h1>ready() 함수?메서드?를 사용한 진입점 설정</h1>
+</body>
+</html>
