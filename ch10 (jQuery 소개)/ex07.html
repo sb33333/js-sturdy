@@ -15,10 +15,12 @@
         $(document).ready(function() {
             let $h1 = $("h1");
             $h1.css({color: "red"});
+            $h1.attr("id", "hello");
+            $h1.append("<h2>안녕 h2</h2>");
         });
     </script>
 </head>
 <body>
-    <h1> 라이브러리 사용 방법 </h1>
+    <h1 id="ola"> 라이브러리 사용 방법 </h1>
 </body>
 </html>

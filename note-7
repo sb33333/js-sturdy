@@ -85,6 +85,7 @@
 
         1) $jQuery객체.parent()
             부모 노드 찾기
+            parent()메서드를 연속적으로 호출하여 조상 노드를 찾을 수 있다.
         
         2) $jQuery객체.parents(["선택자"])
             모든 조상 노드 찾기(또는 "선택자" 조건에 맞는 조상 노드 찾기)
@@ -95,10 +96,10 @@
     ?? 같은 부모 밑에 있는 ??
 
     1) $jQuery객체.prev(), $jQuery객체.prevAll(["선택자"])
-        이전 형제 노드 찾기
+        이전 형제, 모든 이전 형제 노드 찾기
 
     2) $jQuery객체.next(), $jQuery객체.nextAll(["선택자"])
-        다음 형제 노드 찾기
+        다음 형제, 모든 다음 형제 노드 찾기
 
 실습 예제
 
@@ -132,15 +133,21 @@
                         find("[css 선택자]")
     ex09    Node 찾기, Node의 index()
     ex10    index() 메서드 주의점
-    ex11    특정 자식 Node 찾기 children() 메서드
+    ex11    모든 자식 노드 찾기 children() 메서드
+    ex12    특정 자식 Node 찾기 children() 메서드
                 $jQuery객체.children()  → 모든 자식 객체(HTML 요소에 대응하는)를 담은 jQuery객체 반환
                 $jQuery객체.contents() → 모든 자식 객체(HTML 요소와 textNode)를 담은 jQuery객체 반환
-    ex12    첫번째 자식 노드 찾기
+    ex13    첫번째 자식 노드 찾기
                 children() 메서드를 사용한다
                     children().first();
                     children(":first");
                     children().eq(0);
                     children(":eq(0)");
-    
+    ex14    마지막 자식 노드 찾기
+    ex15    n번째 자식 노드 찾기
+    ex16    부모, 조상 노드 찾기
+    ex17    앞 또는 뒤의 형제 노드(들) 찾기
         
     
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-마지막-자식-노드-찾기</title>
+    <link rel="stylesheet" href="./css/sample-boxes.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $menu = $("ul.menu");
+            // ul.menu 객체의 마지막 자식 노드 선택.
+
+            // jQuery 객체의 last() 메서드를 호출
+            // let $lastMenu = $menu.children().last();
+            // children() 메서드에 ":last" 선택자를 사용.
+            // $menu.children(":last");
+            // let $lastMenu = $menu.children().eq(-1);
+            let $lastMenu = $menu.children(":eq(-1)");
+            $lastMenu.css("border", "3px solid green");
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        샘플페이지. (div, id=samplePage, class=page)
+        <div id="header">
+            헤더 영역(div, id="header")
+        </div>
+        <div id="content" class="sample-content">
+            노드 찾기 (div id="content" class="sample-content")
+            <ul class="menu">
+                일반 노드 찾기(ul, class="menu")
+                <li data-value="1">id로 찾기(li, data-value = "1")</li>
+                <li class="select">tag로 찾기(li, class="select")</li>
+                <li data-value="2">class로 찾기(li, data-value = "2")</li>
+                <li class="test1">속성으로 찾기(li, class="test1")</li>
+            </ul>
+            <div class="content-data">
+                자식 노드 찾기(div class="content-data")
+                <p class="test1">1. 모든 자식 노드 찾기(p, class="test1")</p>
+                <p>2. 특정 자식 노드 찾기(p)</p>
+                <p class="test2">3. 마지막 자식 노드 찾기(p, class="test2")</p>
+            </div>
+
+        </div>
+        <div id="footer">푸터 영역(div, id="footer")</div>
+    </div>
+</body>
+</html>

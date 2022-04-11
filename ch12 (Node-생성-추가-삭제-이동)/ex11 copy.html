@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li.select {
+            background-color: aqua;
+        }
+        div#board {
+            border : 2px solid blue;
+            margin-top: 20px;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $input = $("#inputText");
+            let $amend = $("#amend");
+            let $delete = $("#delete");
+            let $moveUp = $("#moveUp");
+            let $moveDown = $("#moveDown");
+            let $list = $("#list");
+            let $selectedItem = null;
+
+            $("#list").click(function() {
+                if ($selectedItem == null) {
+                    $(this).addClass("select");
+                    $selectedItem = $(this);
+                }
+            });
+
+            $("#add").click(function() {
+                let $dataString = $("<li>" + $input.val() + "</li>");
+                $list.append($dataString);
+
+            });
+
+            $amend.click(function() {
+                if($selectedItem != null) {
+                    let data = $input.val();
+                    $selectedItem.text(data);
+                }
+            });
+
+            $delete.click(function() {
+                if($selectedItem != null) {
+                    $selectedItem.remove();
+                    $selectedItem = null;
+                }
+            });
+
+            $moveUp.click(function() {
+                if($selectedItem != null) {
+                    console.log($selectedItem.index());
+                    $selectedItem.insertBefore($selectedItem.prev());
+                }
+            });
+
+            $moveDown.click(function() {
+                if($selectedItem != null) {
+                    console.log($selectedItem.index());
+                    $selectedItem.insertAfter($selectedItem.next());
+                }
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="bar">
+        <input type="text" id="inputText">
+        <button id="add">추가</button>
+        <button id="amend">수정</button>
+        <button id="delete">삭제</button>
+        <button id="moveUp">▲</button>
+        <button id="moveDown">▼</button>
+    </div>
+    <div id="board">
+        <ul id="list">
+            <li>sample</li>
+        </ul>
+    </div>
+</body>
+</html>

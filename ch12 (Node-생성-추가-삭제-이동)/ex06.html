@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-특정-노드-또는-전체-노드-삭제하기(jQuery-remove()-children())</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $menu = $("#menu");
+            /* 클릭한 노드 삭제하기 */ 
+            $("#menu li").click(function() {
+                $(this).remove();
+            });
+
+            /* 모든 자식 노드 삭제하기 */ 
+            $("#removeButton").click(function() {
+                $menu.children().remove();
+                // ":even", ":odd" 선택자로 응용할 수 있다.
+                // even 은 인덱스 번호를 기준으로 한다.
+                // $menu.children("li:even").remove();
+                // $menu.children("li:odd").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="removeButton">추가하기</button>
+    <input type="number" id="position">
+    <ul id="menu">
+        <li>메뉴0</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li class="select">메뉴4</li>
+        <li>메뉴5</li>
+
+    </ul>
+</body>
+</html>

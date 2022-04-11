@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-html()-text()의-차이점-2(jQuery))</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $menu = $("#menu");
+            $output = $("#output");
+            
+            $("#menu li").click(function() {
+                let $item = $(this);
+                // html()메서드를 이용하여 li노드가 클릭되면 아래 마크업 언어가 추가된다.
+                // $item.html("<a href='http://www.google.com'>새메뉴" + ($item.index()) + "</a>");
+
+                // text()메서드를 이용하여 li노드의 textNode 내용을 수정한다.
+                $item.text("새 문자열");
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <button id="okay">확인</button>
+    <input type="number" id="position">
+    <ul id="menu">
+        <li>메뉴0</li>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li class="select">메뉴4</li>
+        <li>메뉴5</li>
+        <p id="output"></p>
+    </ul>
+</body>
+</html>

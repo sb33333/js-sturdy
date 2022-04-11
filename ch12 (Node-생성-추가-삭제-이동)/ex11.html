@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제(강의)</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        } 
+        ul.menu {
+                padding: 10px;
+                list-style: none;
+                border: 1px #000 solid;
+        }
+        ul.menu li {
+            border: 1px #eeeeee solid;
+            margin: 10px;
+        }
+        button {
+            text-align: center;
+        }
+        button:hover {
+            background-color: yellow;
+        }
+        li.select {
+            background-color: #ccc;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+
+        let $menu = null;
+        let $menuName = null;
+        let $selectedItem = null;
+        
+        // 초기화 및 이벤트 등록 메서드 호출
+        $(document).ready(function() {
+            init();
+            initEvent();
+        });
+
+        // 전역에서 사용 할 jQuery객체 초기화
+        function init() {
+            $menu = $("ul#list");
+            $menuName = $("#inputText");
+        }
+
+        // 이벤트 초기화
+        function initEvent() {
+            // 메뉴 추가
+            $("#add").click(function() {
+                addMenu();
+            });
+
+            // li객체를 클릭했을 때 선택되도록 이벤트 등록
+            $menu.on("click", "li", function() {            // .on( events [, selector ] [, data ] ) 형태로 사용 가능.
+                selectItem($(this));                        // $("#list li").click() 과 다른 점은 무엇일까? 이렇게 하면 이벤트 등록이 안되긴 한다.
+            });
+            /*  아래와 같이 하면 작동하지 않는다.
+                $("#list li").click(function() {
+                    selectItem($(this));
+                });
+            */
+            
+            // 수정 기능 이벤트 등록
+            $("#amend").click(function() {
+                updateMenuItem();
+            });
+
+            // 삭제 기능 이벤트 등록
+            $("#delete").click(function() {
+                deleteMenuItem();
+            });
+
+            // 위로 이동 이벤트 등록
+            $("#moveUp").click(function() {
+                itemUp();
+            });
+            // 아래로 이동 이벤트 등록
+            $("#moveDown").click(function() {
+                itemDown();
+            });
+
+        }
+
+        // 메뉴 추가 처리 구현
+        function addMenu() {
+            // 사용자 입력 텍스트 가져오기
+            let input = $menuName.val();
+            // 신규 메뉴에 넣기 위한 문자열 생성
+            let itemString = "<li>" + input + "</li>";
+
+            // 선택된 아이템이 있다면 아래로 추가
+            if($selectedItem) {
+                $selectedItem.after(itemString);
+            } else {
+                $menu.append(itemString);
+            }
+        }
+
+        // 메뉴 선택 처리 구현
+        function selectItem($item) {
+            // 선택 아이템이 존재하는 경우
+            if($selectedItem != null) {
+                // 선택 효과 제거
+                $selectedItem.removeClass("select");
+            } 
+            $selectedItem = $item;
+            $selectedItem.addClass("select");
+            console.log($selectedItem);
+        }
+
+        // 메뉴 수정 구현
+        function updateMenuItem() {
+            if($selectedItem) {
+                let menuName = $menuName.val();
+                console.log($selectedItem);
+                $selectedItem.html(menuName);
+            } else {
+                alert("선택 메뉴가 없음");
+            }
+        }
+
+        // 메뉴 삭제 구현
+        function deleteMenuItem() {
+            if($selectedItem) {
+                $selectedItem.remove();
+                $selectedItem = null;
+            }
+        }
+
+        //위로 이동 구현
+        function itemUp() {
+            if($selectedItem) {
+                $selectedItem.insertBefore($selectedItem.prev());
+            }
+        }
+        //아래로 이동 구현
+        function itemDown() {
+            if($selectedItem) {
+                $selectedItem.insertAfter($selectedItem.next());
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="bar">
+        <input type="text" id="inputText">
+        <button id="add">추가</button>
+        <button id="amend">수정</button>
+        <button id="delete">삭제</button>
+        <button id="moveUp">▲</button>
+        <button id="moveDown">▼</button>
+    </div>
+    <div id="board">
+        <ul id="list">
+            <li>sample</li>
+        </ul>
+    </div>
+</body>
+</html>

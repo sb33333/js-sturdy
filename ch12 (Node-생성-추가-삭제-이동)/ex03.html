@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-이동-(jQuery)</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $menu = $("#menu");
+            $("#addButton").click(function() {
+                let count = $menu.children().length;
+                
+                // <li class="select" 이전에 추가하기
+
+                $item = $("<li>new Menu " + count + "</li>");
+                // $신규노드.insertBefore($대상) 메서드 사용
+                // $item.insertBefore("#menu li.select");
+                // 또는 $대상.before(신규노드) 사용
+                // $("#menu li.select").before($item);
+                
+
+                /* <li class="select" 이후에 추가하기  */
+                /* $신규노드.insertAfter($대상) 메서드 사용 */
+                $item.insertAfter("#menu li.select");
+                
+            });
+
+
+            /*
+                let $button = $("#addButton");
+                let $menu = $("#menu");
+                let $positionValue;
+                $button.on("click", function() {
+                        let newNode = "<li>메뉴" + ($menu.children().length + 1) + "</li>";
+                        console.dir(newNode);
+                        $menu.append(newNode);
+            });
+            */
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="addButton">추가하기</button>
+    <input type="number" id="position">
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li class="select">메뉴5</li>
+        <li>메뉴6</li>
+
+    </ul>
+</body>
+</html>

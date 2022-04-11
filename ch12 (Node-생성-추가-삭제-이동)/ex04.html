@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-마지막으로-이동-(jQuery)</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $menu = $("#menu");
+            $("#addButton").click(function() {
+                let count = $menu.children().length;
+                
+                /* append() 메서드를 사용해 대상 노드의 맨 마지막 자식으로 신규 노드 추가 */ 
+                let $item = $("<li>new Menu " + count + "</li>");
+                // $menu.append($item); // 아래와 동일
+                $item.appendTo($menu);
+                
+            });
+
+            /* #menu li를 클릭 하면 append()메서드를 이용하여 마지막 자식노드로 이동하는 기능. */ 
+            $("#menu li").click(function() {
+                console.log($(this));
+
+                $menu.append($(this));
+            });
+
+
+            /*
+                let $button = $("#addButton");
+                let $menu = $("#menu");
+                let $positionValue;
+                $button.on("click", function() {
+                        let newNode = "<li>메뉴" + ($menu.children().length + 1) + "</li>";
+                        console.dir(newNode);
+                        $menu.append(newNode);
+            });
+            */
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="addButton">추가하기</button>
+    <input type="number" id="position">
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li class="select">메뉴5</li>
+        <li>메뉴6</li>
+
+    </ul>
+</body>
+</html>

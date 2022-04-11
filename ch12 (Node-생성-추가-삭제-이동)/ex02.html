@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-생성과-추가-(jQuery&JavaScript)</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $menu = $("#menu");
+            $("#addButton").click(function() {
+                let count = $menu.children().length;
+                
+                /*  
+                    신규 노드를 생성하는데 문자열을 이용하는 방법
+                    prepend() 메서드는 대상 노드가 가진 자식 노드들의 맨 앞에 추가한다.
+                 */ 
+                // $menu.prepend("<li>메뉴" + count + "</li");
+
+                // jQuery로 신규 노드를 생성하는 방법
+                let $li = $("<li>메뉴" + count + "</li>");
+                // $대상.prepend() 메서드로 추가하는 방법
+                // $menu.prepend($li);
+
+                // 신규 노드를 생성해 $신규노드.prependTo() 메서드로 추가하는 방법.
+                // $li.prependTo($menu);
+
+                // 신규 노드를 생성해 $신규노드.insertBefore() 메서드로 추가하는 방법.
+                $li.insertBefore("#menu li:first"); // ("#menu li") 하면 모든 li 앞에 추가된다.
+            });
+
+
+            /*
+                let $button = $("#addButton");
+                let $menu = $("#menu");
+                let $positionValue;
+                $button.on("click", function() {
+                        let newNode = "<li>메뉴" + ($menu.children().length + 1) + "</li>";
+                        console.dir(newNode);
+                        $menu.append(newNode);
+            });
+            */
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="addButton">추가하기</button>
+    <input type="number" id="position">
+    <ul id="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li class="select">메뉴5</li>
+        <li>메뉴6</li>
+
+    </ul>
+</body>
+</html>

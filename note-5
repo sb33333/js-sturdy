@@ -122,8 +122,8 @@ DOM과 노드와의 관계
 	</body>
 	
 	<body> 요소 : document.body
-	<div> 요소 : document.body.children[0]	//	HTMLCollection [div#detail, detail: div#detail]
-	<p> 요소 : document.body.children[0].children[3]	//	HTMLCollection(4) [h2, ul, h3, p]
+	<div> 요소 : document.body.children[0]	//	HTMLCollection [div#detail, detail: div#detail]
+	<p> 요소 : document.body.children[0].children[3]	//	HTMLCollection(4) [h2, ul, h3, p]
 	
 	※ google에 live dom viewer를 검색해서 사용해보자
 	

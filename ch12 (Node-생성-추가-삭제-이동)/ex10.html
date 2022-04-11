@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드-다수의-자식-노드를-제거-하기(jQuery-html()-append())</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "d2coding", monospace;
+        }
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: aquamarine;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $menu = $("#menu");
+            let data = "";
+            
+            /*노드 내용에 적용하는 부분*/
+            $("#addHTML").on("click", function() {
+                for (let i = 0; i < 10; i++) {
+                    data += "<li>menu" + i + "</li>";
+                }
+                console.log(data);
+                // html() 메서드를 1회만 호출해서 노드를 추가할 수 있다.
+                $menu.html(data);
+            });
+
+            $("#addAppend").on("click", function() {
+                for (let i = 0; i < 10; i++) {
+                    data += "<li>menu" + i + "</li>";
+                }
+                console.log(data);
+                // append() 메서드도 한 번으로 추가가 가능하다...?
+                $menu.append(data);
+            });
+
+            // ul#menu의 모든 자식을 제거하기
+            $("#deleteHTML").click(function() {
+                // $menu.html("");
+                // remove() 메서드는 내부적으로 자식노드의 수만큼 호출되는 원리이다.
+                $menu.children().remove();
+
+                // remove() 메서드는 단일 객체를 지우는 데 사용하자.
+                // 모든 요소를 지울 때에는 html("")을 사용하자.
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="addHTML">추가하기 .html()</button>
+    <button id="addAppend">추가하기 .append()</button>
+    <button id="deleteHTML">제거하기 .html("")</button>
+    <input type="number" id="position">
+    <ul id="menu">
+
+    </ul>
+</body>
+</html>

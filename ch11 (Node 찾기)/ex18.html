@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지-클릭-시-인덱스-출력하는-프로그램</title>
+    <style>
+
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+
+        .tab-menu li {
+            width: 99px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
+            float: left;
+        }
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+        .tab-menu li.menuitem1 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.1.png);
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.2.png);
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.3.png);
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.4.png);
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.5.png);
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url(../ch06\ \(함수의\ 종류\)//resources/newbtn.bar.6.png);
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $menuItems 에 li 태그 요소들을 바인딩 함.
+            let $menuItems = $("ul.tab-menu li");
+            $menuItems.on("click", function() {
+                // alert으로 선택된 메뉴 아이템의 index 출력
+                alert("index : " + $(this).index());
+            });
+
+            // 1초 간격으로 탭 메뉴에 select적용하기
+            let currentIndex = 0;
+            let timerId = setInterval(function() {
+                let $item = $menuItems.eq(currentIndex);
+                $item.addClass("select");
+                currentIndex++;
+                console.log("currentIndex: " + currentIndex);
+                if (currentIndex >= $menuItems.length) {
+                    clearInterval(timerId);
+                    timerId = 0;
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">구글</li>
+        <li class="menuitem2">페이스북</li>
+        <li class="menuitem3">핀터레스트</li>
+        <li class="menuitem4">트위터</li>
+        <li class="menuitem5">에어비엔비</li>
+        <li class="menuitem6">패스</li>
+    </ul>
+</body>
+</html>

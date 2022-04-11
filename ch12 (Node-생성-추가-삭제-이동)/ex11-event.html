@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+            let $list = $("#list");
+            // document.getElementById("add").addEventListener("click", function() {
+            //     let addedNode = document.createElement("li");
+            //     let addedTextNode = document.createTextNode("added item");
+            //     addedNode.appendChild(addedTextNode);
+            //     document.getElementById("list").appendChild(addedNode);
+            // });
+
+            $("#add").click(function() {
+                $list.append("<li>added item</li>");
+            });
+
+            
+        });
+    </script>
+    
+    <style>
+        .root {
+            background-color: antiquewhite;
+            width: 600px;
+        }
+
+        .parent {
+            background-color: aqua;
+            width: 400px;
+        }
+
+        .child {
+            background-color: blue;
+            width: 200px;
+        }
+
+        .target {
+            background-color: brown;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button id="add">add</button>
+    <ul id="list">
+        <li> === </li>
+    </ul>
+
+    <div class="root" id="root">
+        <div class="parent" id="parent">
+            <div class="child" id="child">
+                <div class="target" id="target">
+                    target
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var target = document.getElementById('target');
+        var root = document.getElementById('root');
+        var parent = document.getElementById('parent');
+        var child = document.getElementById('child');
+        target.addEventListener("click", function() {
+            alert("target");
+        }, true);
+        root.addEventListener("click", function() {
+            alert("root");
+        });
+
+        parent.addEventListener("click", function() {
+            alert("parent");
+        });
+
+        child.addEventListener("click", function() {
+            alert("child");
+        });
+
+
+    </script>
+    
+</body>
+</html>

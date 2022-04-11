@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table td {
+            width: 300px;
+            border-top: 1px dashed blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <table>
+        <th>구분</th>
+        <th>JavaScript</th>
+        <th>jQuery</th>
+        <tr>
+            <td>...</td>
+            <td>hello</td>
+            <td>test</td>
+        </tr>
+        <tr>
+            <td>요소 찾기</td>
+            <td>document.getElementById() ...
+                document.querySelector 등</td>
+            <td>$("[선택자]")</td>
+        </tr>
+
+
+        <tr>
+            <td>css적용</td>
+            <td>DOM객체.style.css속성 = "값"</td>
+            <td>$jQuery객체.css(css속성 값);</td>
+        </tr>
+
+        <tr>
+            <td>요소의 속성 변경</td>
+            <td>DOM객체.setAttribute(속성 명, 속성 값)</td>
+            <td>$jQuery객체.attr(속성 명, 속성 값);</td>
+        </tr>
+
+        <tr>
+            <td>이벤트 등록</td>
+            <td>DOM객체.addEventListener(이벤트, function);</td>
+            <td>$jQuery객체.on(이벤트, function);</td>
+        </tr>
+
+        <tr>
+            <td>애니메이션</td>
+            <td>???</td>
+            <td>$jQuery객체.animate(css속성 변경, duration)</td>
+        </tr>
+
+        <tr>
+            <td>DOM 요소 추가</td>
+            <td>DOM객체.appendChild(DOM객체)
+                DOM객체.insertBefore(DOM객체, childNode 지정)
+            </td>
+            <td>$jQuery객체.append("추가할 태그 내용(innerHTML과 비슷하게)")</td>
+        </tr>
+
+        <tr>
+            <td>DOM 요소 제거</td>
+            <td>DOM객체.removeChild(Node);
+                
+            </td>
+            <td> ??? </td>
+        </tr>
+
+        <tr>
+            <td>...</td>
+            <td>hello</td>
+            <td>test</td>
+        </tr>
+
+        <tr>
+            <td>...</td>
+            <td>hello</td>
+            <td>test</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+
+
+jquery addClass
+
+
+JS jquery에서 이벤트 처리 
+https://programmingsummaries.tistory.com/313
+
+
+$menu.on("click", function(arg1) {
+    console.dir(arg1);      // arg1 = m.Event 객체
+});
