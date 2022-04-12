@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0046)file:///C:/vscode-workspace/js-study/note.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        table {
+            border-spacing: 20px;
+        }
         table td {
             width: 300px;
             border-top: 1px dashed blue;
@@ -15,10 +18,10 @@
 </head>
 <body>
     <table>
-        <th>구분</th>
+        <tbody><tr><th>구분</th>
         <th>JavaScript</th>
         <th>jQuery</th>
-        <tr>
+        </tr><tr>
             <td>...</td>
             <td>hello</td>
             <td>test</td>
@@ -57,25 +60,31 @@
 
 		<tr>
             <td>DOM 요소 생성</td>
-            <td>document.createElement(), innerHTML 속성, Node.cloneNode() 메서드</td>
+            <td>document.createElement(), innerHTML 속성, Node.cloneNode() 메서드, createAttribute() 메서드</td>
             <td>$("요소 내용을 태그를 포함한 텍스트로 입력")</td>
         </tr>
 
         <tr>
             <td>DOM 요소 추가</td>
             <td>DOM객체.appendChild(DOM객체)
-                DOM객체.insertBefore(DOM객체, childNode 지정)
+                DOM객체.insertBefore(DOM객체, childNode 지정), insertData()
             </td>
             <td>$jQuery객체.append("추가할 태그 내용(innerHTML과 비슷하게)") 
 			prepend(), prependTo(), append(), appendTo(), insertBefore(), before(), insertAfter(), after()
 			※ 노드 이동에도 사용할 수 있다.
 			</td>
         </tr>
-		
+
+        <tr>
+            <td> DOM요소 내용 조회 </td>
+            <td> DOM요소.innerHTML 요소 또는 innerText 요소 </td>
+            <td> $jQuery.html() 또는 $jQuery.text() 사용 </td>
+        </tr>
+
 		<tr>
             <td> DOM요소 내용 변경 </td>
-            <td> DOM요소.innerHTML 요소 또는 innerText 요소 사용 </td>
-            <td> test </td>
+            <td> DOM요소.innerHTML 요소 수정 또는 innerText 요소 수정 </td>
+            <td> $jQuery.html([변경할 값]) 또는 $jQuery.text([변경할 값]) 사용 </td>
         </tr>
 
         <tr>
@@ -89,19 +98,32 @@
         <tr>
             <td>자식 요소 접근</td>
             <td>DOM객체 childNodes 속성, children 속성(textNode 미포함), firstChild/lastChild 속성</td>
-            <td>test</td>
+            <td>$jQuery.children([선택자]), .children().eq([인덱스]), children().first(), children().last() ... </td>
         </tr>
 
+        <tr>
+            <td>자식 요소 count</td>
+            <td>DOM객체.childElementCount 속성</td>
+            <td>$jQuery.children([선택자]), .children().eq([인덱스]), children().first(), children().last() ... </td>
+        </tr>
+
+        <tr>
+            <td>자식(자손) 요소 검색</td>
+            <td> ??? </td>
+            <td>$jQuery.find([선택자]), .filter([선택자]) -&gt; jQuery객체 배열에서 가능 </td>
+        </tr>
+
+
 		<tr>
-            <td>부모 요소 접근</td>
+            <td>부모(조상) 요소 접근</td>
             <td>DOM객체 parentNode/parentElement 속성</td>
-            <td>test</td>
+            <td>$jQuery.parent(), parents([선택자])</td>
         </tr>
 		
 		<tr>
             <td>형제 요소 접근</td>
             <td>DOM객체 previousSibling/nextSibling 속성</td>
-            <td>test</td>
+            <td>$jQuery.prev(), prevAll(), next(), nextAll() </td>
         </tr>
 
         <tr>
@@ -109,19 +131,49 @@
             <td> hello </td>
             <td> test </td>
         </tr>
-    </table>
-</body>
-</html>
+    </tbody></table>
+    <ul>
+        <li>
+            <h3>JS jquery에서 이벤트 처리 </h3>
+            <p><a href="https://programmingsummaries.tistory.com/313">JavaScript에서 이벤트 전파를 중단하는 방법</a></p>
+        </li>
+        <li>
+            <h3>이벤트 핸들러로 전달되는 익명함수의 매개변수 = event 객체</h3>
+            <p>
+                </p><pre>                $menu.on("click", function(arg1) {
+                    console.dir(arg1);      // arg1 = m.Event 객체
+                });
+                </pre>
+            <p></p>
+        </li>
+
+        <li>
+            <h3>JavaScript의 내장 객체들</h3>
+            <p>Array, Date, Math, screen</p>
+        </li>
+
+        <li>
+            <h3></h3>
+            <p></p>
+        </li>
+
+        <li>
+            <h3></h3>
+            <p></p>
+        </li>
+
+        <li>
+            <h3></h3>
+            <p></p>
+        </li>
+    </ul>
 
 
 
+
+<!-- 
 jquery addClass
+-->
 
 
-JS jquery에서 이벤트 처리 
-https://programmingsummaries.tistory.com/313
-
-
-$menu.on("click", function(arg1) {
-    console.dir(arg1);      // arg1 = m.Event 객체
-});
+</body></html>
