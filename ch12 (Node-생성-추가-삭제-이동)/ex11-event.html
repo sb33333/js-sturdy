@@ -67,20 +67,14 @@
         var root = document.getElementById('root');
         var parent = document.getElementById('parent');
         var child = document.getElementById('child');
-        target.addEventListener("click", function() {
-            alert("target");
-        }, true);
-        root.addEventListener("click", function() {
-            alert("root");
-        });
+        var divs = document.querySelectorAll("div");
+        
+        parent.addEventListener("click", logEvent);
 
-        parent.addEventListener("click", function() {
-            alert("parent");
-        });
-
-        child.addEventListener("click", function() {
-            alert("child");
-        });
+        function logEvent(event) {
+            console.log(event.currentTarget.className);
+            // event.stopPropagation();
+        }
 
 
     </script>

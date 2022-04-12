@@ -55,12 +55,27 @@
             <td>$jQuery객체.animate(css속성 변경, duration)</td>
         </tr>
 
+		<tr>
+            <td>DOM 요소 생성</td>
+            <td>document.createElement(), innerHTML 속성, Node.cloneNode() 메서드</td>
+            <td>$("요소 내용을 태그를 포함한 텍스트로 입력")</td>
+        </tr>
+
         <tr>
             <td>DOM 요소 추가</td>
             <td>DOM객체.appendChild(DOM객체)
                 DOM객체.insertBefore(DOM객체, childNode 지정)
             </td>
-            <td>$jQuery객체.append("추가할 태그 내용(innerHTML과 비슷하게)")</td>
+            <td>$jQuery객체.append("추가할 태그 내용(innerHTML과 비슷하게)") 
+			prepend(), prependTo(), append(), appendTo(), insertBefore(), before(), insertAfter(), after()
+			※ 노드 이동에도 사용할 수 있다.
+			</td>
+        </tr>
+		
+		<tr>
+            <td> DOM요소 내용 변경 </td>
+            <td> DOM요소.innerHTML 요소 또는 innerText 요소 사용 </td>
+            <td> test </td>
         </tr>
 
         <tr>
@@ -68,19 +83,31 @@
             <td>DOM객체.removeChild(Node);
                 
             </td>
-            <td> ??? </td>
+            <td> remove() 또는 html("") 이용 </td>
         </tr>
 
         <tr>
-            <td>...</td>
-            <td>hello</td>
+            <td>자식 요소 접근</td>
+            <td>DOM객체 childNodes 속성, children 속성(textNode 미포함), firstChild/lastChild 속성</td>
+            <td>test</td>
+        </tr>
+
+		<tr>
+            <td>부모 요소 접근</td>
+            <td>DOM객체 parentNode/parentElement 속성</td>
+            <td>test</td>
+        </tr>
+		
+		<tr>
+            <td>형제 요소 접근</td>
+            <td>DOM객체 previousSibling/nextSibling 속성</td>
             <td>test</td>
         </tr>
 
         <tr>
-            <td>...</td>
-            <td>hello</td>
-            <td>test</td>
+            <td> ... </td>
+            <td> hello </td>
+            <td> test </td>
         </tr>
     </table>
 </body>
