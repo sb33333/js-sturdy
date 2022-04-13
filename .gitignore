@@ -2,8 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode
 
 ##
-.resources/*
-
+*/resources
+*/notes
 
 ### VisualStudioCode ###
 .vscode/*

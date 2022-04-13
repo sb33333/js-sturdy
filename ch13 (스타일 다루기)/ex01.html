@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일-다루기-1(jQuery-JavaScript)</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 10px;
+            font-size: 25px;
+            border: 2px solid red;
+        }
+        li {
+            border: 2px dashed blue;
+            color: purple;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //JavaScript로 스타일 접근
+        window.onload = function() {
+            let content = document.getElementById("test");
+            // color 속성은 인라인 속성으로 지정되어 style 속성으로 확인 가능
+            pLog("color = " + content.style.color);
+            // border 속성은 인라인으로 지정된 속성이 아니기 때문에 window.getComputedStyle(DOM요소)[.속성명]을 사용해야 한다.
+            pLog("JS style.border = " + content.style.border);
+            
+            // jQuery는 외부 지정 속성 값도 불러올 수 있다.
+            pLog("$jQuery.css('border') : " + $("#test").css("border"));
+            pLog("JS window.getComputedStyle() = " + window.getComputedStyle(content).border);
+            
+            let list = document.getElementById("list");
+            
+            $("#list").css("border", "2px dotted purple");
+            list.style.color = "red";
+            // <script> 요소를 통해 JS나 jQuery를 통해 지정된 스타일은 DOM.style 요소로 접근 가능.
+            pLog("border = " + list.style.border);
+            pLog("color = " + list.style.color);
+        }
+
+        // $jQuery.css("속성명") 사용
+
+        
+
+        function pLog(Str) {
+            console.log(Str)
+        }
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color: blue;">
+        스타일 다루기
+    </div>
+    <ul>
+        <li id="list">list</li>
+    </ul>
+</body>
+</html>

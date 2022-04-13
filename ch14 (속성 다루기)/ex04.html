@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성-값-설정-2(attr())</title>
+    <style>
+        body{
+            font-size: 25px;
+            font-family: "d2coding", monospace;
+        }
+        .content {
+            text-align: center;
+        }
+        img {
+            width: 200px;
+
+        }
+        #container {
+            width: 800px;
+            height: 950px;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid red;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // img.target 목록 구하기
+            let $targetList = $(".target");
+
+            $targetList.click(function() {
+                // 클릭된 img를 jQuery객체로 변수에 바인딩
+                let $target = $(this);
+                
+                // 이미지의 data-flag 속성값을 반대의 값으로 설정함.
+                let flag = !$target.data("flag");
+                // let flag = !Boolean($target.attr("data-flag"));  -> 주의! String 'false' 를 Boolean() 한다고 boolean 자료형 false로 바뀌지 않는다.
+
+                /*
+                    $target.data("flag") -> boolean 자료형
+                    $target.attr("data-flag") -> String 자료형
+                */
+
+
+                $target.data("flag", flag);
+                console.log("data('flag'): ", $target.data("flag"));
+                console.log($target.data());
+                console.log("attr('data-flag'): ", $target.attr("data-flag"));
+                /*
+                    $target.data("flag", flag); 를 통해 data를 바꾼다고 해도
+                    $target 대상의 DOM data-flag 값이 바뀌지 않는다...
+                    data()의 값은 attr("data-")와 따로 생성되는가?
+                */
+                
+
+                if(flag) {
+                    $target.attr("src", "./resources/cat.png");
+                } else {
+                    $target.attr("src", "./resources/dog.png");
+                }
+
+            });
+            let $mything = $("#mything");
+
+            $mything.data("hello", "say hello");
+            console.log("add data-some attribute using data('hello', 'say hello') method");
+            console.log("$mything.data(): ", $mything.data());
+            console.log("$mything.attr(): ", $mything.attr("data-hello"));
+
+            $mything.attr("data-hello2", "say hi2");
+            console.log("add data-some attribute using attr('data-hello2', 'say hi2') method");
+            console.log("$mything.data(): ", $mything.data());
+            console.log("$mything.attr(): ", $mything.attr("data-hello2"));
+
+            console.dir($mything);
+            console.dir($mything[0]);
+            
+            /*
+                1)      $jQuery.data() 메서드로 추가하는 data-ish 속성은 DOM 객체에 표시되지 않는다.
+                1)-1    HTML문서를 불러올 때 각 요소에 있는 "data-ish" 속성은 $jQuery 객체에 불러와 진다.
+                2)      $jQuery.attr() 메서드로 추가하는 data-ish 속성은 DOM 객체에 표시된다.
+                3)      각 방법으로 만든 "data-ish" 속성은 각 방법으로만 불러올 수 있다.
+                4)      $target.data("flag") -> boolean 자료형
+                4)-1    $target.attr("data-flag") -> String 자료형
+                
+                참조: https://this-programmer.tistory.com/300
+            */
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="panel1">
+            <p>첫 번째 이미지</p>
+            <img id="image1" src="./resources/cat.png" class="target" data-flag='true'>
+        </div>
+        <div class="panel2">
+            <p>두 번째 이미지</p>
+            <img id="image2" src="./resources/cat.png" class="target" data-flag='true'>
+        </div>
+        <div class="panel3">
+            <p>세 번째 이미지</p>
+            <img id="image3" src="./resources/cat.png" class="target" data-flag='true'>
+        </div>
+    </div>
+    <p id="mything">mything</p>
+    
+</body>
+</html>

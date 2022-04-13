@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성-값-설정-1(attr())</title>
+    <style>
+        body{
+            font-size: 25px;
+            font-family: "d2coding", monospace;
+        }
+        .content {
+            text-align: center;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $image = $("#image");
+            let flag = true;        // flag 변수 선언
+
+            $image.on("click", function() {
+                flag = !flag;
+                if (flag) {
+                    //attr("속성", "속성 값") 메서드를 사용해 속성의 값을 동적으로 변경한다.
+                    $image.attr("src", "./resources/cat.png");
+                } else {
+                    $image.attr("src", "./resources/dog.png");
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <img src="./resources/cat.png" id="image">
+</body>
+</html>

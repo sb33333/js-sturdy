@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-스타일-값-설정하기-2</title>
+    <style>
+        body {
+            font-size: 20px;
+            font-family: "d2coding", monospace;            
+        }
+        .menu {
+            padding: 10px;
+            list-style: none;
+            border: 2px solid black;
+        }
+        .menu li {
+            border: 1px solid aqua;
+            margin: 10px;
+        }
+        li.select {
+            background-color: brown;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        // each() 메서드를 통해 li 요소의 font-size를 점점 크게 하기
+        $(document).ready(function() {
+            let $content = $(".menu");
+
+            $("#exec").click(function() {
+                
+                let size = 16;
+
+                // each() 로 li 개수 만큼 반복.
+                $content.children().each(function(i) {
+                    $(this).css({
+                        fontSize: size
+                    });
+                    // 폰트 사이즈가 10씩 증가됨.
+                    size += 10;
+                });
+            });
+            
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <button id="exec">실행</button>
+    <ul class="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li class="select">메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>
+</body>
+</html>

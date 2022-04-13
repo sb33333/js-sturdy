@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일-다루기-2(jQuery-JavaScript)</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 10px;
+            font-size: 25px;
+            border: 2px solid red;
+        }
+        li {
+            border: 2px dashed blue;
+            color: purple;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+            window.onload = function() {
+            let content = document.getElementById("test");
+            let $content = $("#test");
+            // JS는 스타일 속성 값을 지정 할 때 단위가 필요함.
+            // content.style.fontSize = "8";    -> 작동 안함.
+
+            // jQuery는 단위가 누락된 경우 기본 단위로 지정됨. (ex: font-size는 px단위)
+            $content.css("font-size", 500);
+        }   
+
+        function pLog(Str) {
+            console.log(Str)
+        }
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color: blue;">
+        스타일 다루기
+    </div>
+    <ul>
+        <li id="list">list</li>
+    </ul>
+</body>
+</html>

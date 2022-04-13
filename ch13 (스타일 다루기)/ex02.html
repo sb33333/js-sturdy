@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일-다루기-2(jQuery-JavaScript)</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 10px;
+            font-size: 25px;
+            border: 2px solid red;
+        }
+        li {
+            border: 2px dashed blue;
+            color: purple;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //JavaScript로 스타일 접근
+        window.onload = function() {
+            let content = document.getElementById("test");
+            // 속성명을 camel case로 표기
+            content.style.fontSize = "100px";
+            // 속성명을 css 표기법으로 할 수 없음.
+            // content.style.font-size = "100px";
+
+            let $content = $("#test");
+            // jQuery는 속성명 표기법을 병기할 수 있음.
+            $content.css("fontSize", "50px");
+            $content.css("font-size", "40px");
+
+        }
+
+        function pLog(Str) {
+            console.log(Str)
+        }
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color: blue;">
+        스타일 다루기
+    </div>
+    <ul>
+        <li id="list">list</li>
+    </ul>
+</body>
+</html>

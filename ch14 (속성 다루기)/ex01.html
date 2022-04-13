@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성-값-읽기</title>
+    <style>
+        body{
+            font-size: 25px;
+            font-family: "d2coding", monospace;
+        }
+        .content {
+            text-align: center;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        // 속성 값 알아내기
+        $(document).ready(function() {
+            // img 요소의 src 속성 값 가져오기
+            console.log("div.content img src: " + $("div.content img").attr("src"));
+            // a 요소의 href 속성 값 가져오기
+            console.log("div.content a href: " + $("div.content a").attr("href"));
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <img src="./resources/codingBrother.png">
+        <br/>
+        <a href="http://www.google.com">google</a>
+    </div>
+</body>
+</html>

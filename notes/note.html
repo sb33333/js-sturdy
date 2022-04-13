@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/vscode-workspace/js-study/note.html -->
-<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="ko">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,18 +26,24 @@
             <td>hello</td>
             <td>test</td>
         </tr>
+
         <tr>
-            <td>요소 찾기</td>
-            <td>document.getElementById() ...
-                document.querySelector 등</td>
-            <td>$("[선택자]")</td>
+            <td>css 속성 확인</td>
+            <td>DOM객체.style.css속성
+                window.getComputedStyle(DOM요소).속성명
+                ※ script 요소를 통해 JS나 jQuery를 통해 지정된 스타일은 DOM.style 요소로 접근 가능.
+            </td>
+            <td>$jQuery객체.css(속성명);
+                ※ css()메서드의 매개변수로 ["속성1", "속성2", ...]를 이용해 여러 개의 속성 값을 가진 객체를 반환받을 수 있다.
+            </td>
         </tr>
 
-
         <tr>
-            <td>css적용</td>
+            <td>css 속성 적용</td>
             <td>DOM객체.style.css속성 = "값"</td>
-            <td>$jQuery객체.css(css속성 값);</td>
+            <td>$jQuery객체.css(css속성, 값)
+                $jQuery객체.css({속성1: "값1", 속성2: "값2", ...})
+            </td>
         </tr>
 
         <tr>
@@ -89,10 +95,42 @@
 
         <tr>
             <td>DOM 요소 제거</td>
-            <td>DOM객체.removeChild(Node);
+            <td>DOM객체.removeChild(Node), .innerHTML = ""</td>
+            <td> remove() 또는 html("") 이용 </td>
+        </tr>
+
+        <tr>
+            <td>class 속성 확인</td>
+            <td>DOM요소.className 속성,
+                DOM요소.classList 속성, classList.item(index)
+            </td>
+            <td>$jQuery.hasClass("클래스")</td>
+        </tr>
+
+        <tr>
+            <td>class 속성 추가/변경</td>
+            <td>DOM요소.className = "클래스1 클래스2 ..."
+                DOM요소.classList.add("클래스1", ["클래스2", "클래스3" ...])
+                DOM요소.classList.replace("변경 전", "변경 후")
+            </td>
+            <td>$jQuery.addClass("클래스1 [클래스2 ...]")
+            </td>
+        </tr>
+
+        <tr>
+            <td>class 속성 제거</td>
+            <td>DOM요소.classList.remove("클래스1", ["클래스2", "클래스3" ...])</td>
+            <td>$jQuery.addClass("[클래스1 클래스2 ...]")
                 
             </td>
-            <td> remove() 또는 html("") 이용 </td>
+        </tr>
+
+        <tr>
+            <td>class 토글</td>
+            <td>DOM요소.classList.toggle("클래스")
+                DOM요소.classList.toggle("클래스", 조건문)
+            </td>
+            <td>toggleClass("클래스") 메서드</td>
         </tr>
 
         <tr>
@@ -153,8 +191,9 @@
         </li>
 
         <li>
-            <h3></h3>
-            <p></p>
+            <h3>ajax</h3>
+            <p><a target="_about" href="https://iborymagic.tistory.com/20?category=1004613">Pure Javascript의 AJAX</a>
+                </p>
         </li>
 
         <li>
@@ -169,11 +208,5 @@
     </ul>
 
 
-
-
-<!-- 
-jquery addClass
--->
-
-
-</body></html>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타일-다루기-2(jQuery-JavaScript)</title>
+    <style>
+        div {
+            margin: 20px;
+            padding: 10px;
+            font-size: 25px;
+            border: 2px solid red;
+        }
+        li {
+            border: 2px dashed blue;
+            color: purple;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+            window.onload = function() {
+            let content = document.getElementById("test");
+            let $content = $("#test");
+
+            // JS로 여러 스타일 속성을 변경하려면
+            // 속성 갯수 만큼 코드가 작성됨.
+            content.style.margin = "50px";
+
+            // jQuery는 하나의 css메서드에 여러 속성을 지정할 수 있음.
+            // css처럼 사용 가능 함.
+            $content.css({
+                fontSize: "20px",
+                border: "2px dashed green",
+                backgroundColor: "#999"
+            });
+        }   
+
+        function pLog(Str) {
+            console.log(Str)
+        }
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color: blue;">
+        스타일 다루기
+    </div>
+    <ul>
+        <li id="list">list</li>
+    </ul>
+</body>
+</html>
