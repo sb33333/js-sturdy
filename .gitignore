@@ -4,6 +4,7 @@
 ##
 */resources
 /notes
+.gitignore
 
 ### VisualStudioCode ###
 .vscode/*
