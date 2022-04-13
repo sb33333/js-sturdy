@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트-단계-확인하기</title>
+    <style>
+
+        body {
+            font-size: 20px;
+            border: 2px solid blue;
+        }
+        * {
+            margin: 50px;
+            border : 2px solid red;
+            min-height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../libs/jquery-3.6.0.min.js"></script>
+    <script>
+        // 리스너 실행 횟수를 기록하는 전역 변수
+        let cnt = 0;
+
+        $(document).ready(function() {
+            // 캡쳐 단계에 첫 번째인 document에 이벤트 리스너를 등록한다.
+            document.addEventListener("click", function(event) {
+                cnt++;
+                console.log("1.document phase = " + event.eventPhase, "count: ", cnt);
+            }, true);
+
+            document.body.addEventListener("click", function(event) {
+                cnt++;
+                console.log("2.body phase = " + event.eventPhase, "count: ", cnt);
+            }, true);
+
+            $("#A1").get(0).addEventListener("click", function(event) {
+                cnt++;
+                console.log("3.A1 phase = " + event.eventPhase, "count: ", cnt);
+            }, true);
+            
+            $("#B1").get(0).addEventListener("click", function(event) {
+                cnt++;
+                console.log("4.B1 phase = " + event.eventPhase, "count: ", cnt);
+            }, true);
+
+            // document target & bubble 이벤트
+            $(document).on("click", function(event) {
+                cnt++;
+                console.log("document phase = " + event.eventPhase, "count: ", cnt);
+            });
+
+            // body target & bubble 이벤트
+            $(document.body).on("click", function(event) {
+                cnt++;
+                console.log("body phase = " + event.eventPhase, "count: ", cnt);
+            });
+
+            // A1 target & bubble 이벤트
+            $("#A1").on("click", function(event) {
+                cnt++;
+                console.log("A1 phase = " + event.eventPhase, "count: ", cnt);
+            });
+
+            // B1 target & bubble 이벤트
+            $("#B1").on("click", function(event) {
+                cnt++;
+                console.log("B1 phase = " + event.eventPhase, "count: ", cnt);
+            });
+
+            // document.addEventListener("click", function(event) {
+            //     cnt++;
+            //     console.log("1.document phase = " + event.eventPhase, "count: ", cnt);
+            // }, true);
+        });
+
+    </script>
+</head>
+
+<body>
+    body
+    <div id="A1">
+        A1
+        <div id="B1">
+            B1
+            <div di="C1">
+                C1
+            </div>
+        </div>
+    </div>
+    <div id="A2">
+        A2
+        <div id="B2">
+            B2
+            <div di="C2">
+                C2
+            </div>
+        </div>
+    </div>
+</body>
+</html>

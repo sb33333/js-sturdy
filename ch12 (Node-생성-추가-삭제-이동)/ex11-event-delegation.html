@@ -45,13 +45,13 @@
         // ul.itemList의 하위 요소인 li에서 에서 발생한 이벤트가 
         // 버블링되며 ul.itemList에 도달하면 이벤트 핸들링 된다.
         itemList.addEventListener("click", function(event) {
-            if (event.target.tagName == "LABEL") {
+            if(event.target.tagName == "LABEL") {
                 event.stopImmediatePropagation();
-                return;
+                event.preventDefault();
             }
-            console.log(event.target.tagName + ": clicked");
+            console.log(event.currentTarget.tagName + ": clicked");
             
-        });
+        }, true);
         /* 참고 : 위 코드는 현재 인풋 박스의 이벤트만 다루는 것이 아니라 
             label 태그의 이벤트도 감지합니다. 
             event 객체를 이용하여 인풋 박스의 이벤트만 감지할 수 있도록 구현해보세요.

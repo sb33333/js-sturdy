@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50%;
+        }
+        #root {
+            background-color: aqua;
+        }
+        #parent {
+            background-color: red;
+        }
+        #child1 {
+            background-color: purple
+        }
+        #child2 {
+            background-color: blue
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var myRoot = document.getElementById("root");
+            var myParent = document.getElementById("parent");
+            var myChild1 = document.getElementById("child1");
+            var myChild2 = document.getElementById("child2");
+            var myDesc1 = document.getElementById("desc1");
+            var myDesc2 = document.getElementById("desc2");
+            var output = document.getElementById("note");
+
+            myRoot.addEventListener("click", function(event) {
+                callLog(event, output);
+                // event.stopPropagation();
+            });
+
+            myParent.addEventListener("click", function(event) {
+                callLog(event, output);
+            });
+
+            myChild1.addEventListener("click", function(event) {
+                callLog(event, output);
+            },true);
+            myChild2.addEventListener("click", function(event) {
+                callLog(event, output);
+            },true);
+
+            myDesc1.addEventListener("click", function(event) {
+                callLog(event, output);
+            });
+
+            myDesc2.addEventListener("click", function(event) {
+                callLog(event, output);
+            });
+
+            document.getElementById("clear").addEventListener("click", function() {
+                output.innerHTML = "";
+            });
+        }
+        
+        function callLog(event, target) {
+            target.innerHTML += event.currentTarget.id + "<br/>";
+            target.innerHTML += sayPhase(event.eventPhase) + "<br/>";
+        }
+
+        function sayPhase(index) {
+            switch(index) {
+                case 0: return "=NONE=";
+                break;
+                case 1: return "=CAPTURING=";
+                break;
+                case 2: return "=TARGET=";
+                break;
+                case 3: return "=BUBBLING=";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="root">
+        root
+        <div id="parent">
+            parent
+            <div id="child1">
+                child1
+                <div id="desc1">
+                    descendant1
+                </div>
+            </div>
+            <div id="child2">
+                child2
+                <div id="desc2">
+                    descendant2
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="clear">clear Text</button>
+    <p id="note"></p>
+</body>
+</html>
