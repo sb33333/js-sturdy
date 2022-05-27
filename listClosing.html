@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .list.on {
+            max-height: 10em;    
+        }
+        .list{
+            max-height: 0;
+            background-color: yellow;
+            color: blue;
+            transition: max-height 500ms ease; 
+            overflow: hidden;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="click"> click</div>
+    <div class="list">
+        <p>list</p>
+        <p>list</p>
+        <p>list</p>
+    </div>
+    <script>
+        document.querySelector("div#click").addEventListener("click", function(){
+            let panel = document.querySelector("div.list");
+            // if (panel.style.maxHeight) {
+            //     panel.style.maxHeight = null;
+            // } else {
+            //     panel.style.maxHeight = panel.scrollHeight + "px";
+            // } 
+            // });
+            panel.classList.toggle("on"); });
+    </script>
+</body>
+</html>
