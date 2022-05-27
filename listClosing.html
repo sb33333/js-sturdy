@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+
         .list.on {
             max-height: 10em;    
         }
@@ -28,15 +28,20 @@
         <p>list</p>
     </div>
     <script>
+        // document.querySelector("div#click").addEventListener("click", function(){
+        //     let panel = document.querySelector("div.list");
+        //     panel.classList.toggle("on"); 
+        // });
+
         document.querySelector("div#click").addEventListener("click", function(){
             let panel = document.querySelector("div.list");
-            // if (panel.style.maxHeight) {
-            //     panel.style.maxHeight = null;
-            // } else {
-            //     panel.style.maxHeight = panel.scrollHeight + "px";
-            // } 
-            // });
-            panel.classList.toggle("on"); });
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+            
     </script>
 </body>
 </html>
