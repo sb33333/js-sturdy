@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+
+        td:hover {
+            background-color: blue;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="player"></p>
+    <table>
+        <tbody class="gameTable">
+            
+            
+        </tbody>
+    </table>
+
+    <script>
+        let gameTable = document.getElementsByClassName("gameTable")[0];
+        let mark;
+        let turn;
+        let size = 5;
+        let clicked;
+        
+        let initialize = function(tbody) {
+            tbody.innerHTML = "";
+            createTable(tbody, size);
+            clicked = 0;
+            turn = true;
+            mark = "X";
+            document.getElementById("player").innerHTML = mark;
+        }
+
+        let createTable = function (tableBody, x) {
+            for (let i = 0; i < x; i++) {
+                let row = document.createElement("tr");
+                for (let j = 0; j < x; j++) {
+                    let col = document.createElement("td");
+                    col.setAttribute("data-x", i);
+                    col.setAttribute("data-y", j);
+                    row.appendChild(col);
+                }
+                tableBody.append(row);
+            }
+        };
+
+        
+
+        let winCheck = function(arr) {
+            if (arr.includes(size)) {
+                alert ("Player " + mark + " wins.");    
+                initialize(gameTable);
+            } else if (clicked === (size * size)) {
+                alert ("draw");
+                initialize(gameTable);
+            } else {
+                turn = !turn;  
+                turn ? mark = "X" : mark = "O";
+                document.getElementById("player").innerHTML = mark;
+            }
+        };
+
+        let clickEventHandler = function(event) {
+            if(event.target.tagName !== "TD") {return}
+            if(event.target.classList.contains("clicked")) {return}
+            let currentX = parseInt(event.target.dataset.x);
+            let currentY = parseInt(event.target.dataset.y);
+            event.target.innerHTML = mark;
+            event.target.dataset.mark = mark;
+            event.target.classList.add("clicked");
+            clicked++;
+            winCheck(countCheck(currentX, currentY, mark));
+        }
+
+        let countCheck = function (x, y, targetMark) {
+            let row = [];
+            let col = [];
+            let cross = [];
+            let rowCount = 0;
+            let colCount = 0;
+            let crossCount = 0;
+            
+            for(let i = 0; i < size; i++) {
+                row.push(gameTable.children[x].children[i]);
+                col.push(gameTable.children[i].children[y]);
+            }
+            if(x === y) {
+                for(let i = 0; i < size; i++) {
+                    cross.push(gameTable.children[i].children[i]);
+                }
+            } else if ((x + y) === (size - 1)) {
+                for(let i = 0; i < size; i++) {
+                    cross.push(gameTable.children[i].children[(size - 1) - i]);
+                }
+            }
+            
+            row.forEach(function(element) {
+                if (element.dataset.mark === targetMark) {
+                    rowCount++;
+                }
+            });
+            col.forEach(function(element) {
+                if (element.dataset.mark === targetMark) {
+                    colCount++;
+                }
+            });
+            cross.forEach(function(element) {
+                if (element.dataset.mark === targetMark) {
+                    crossCount++;
+                }            
+            });
+            return [rowCount, colCount, crossCount, targetMark];
+        }
+
+
+        initialize(gameTable);
+        
+        gameTable.addEventListener("click", function(event) {
+            clickEventHandler(event);
+        });
+        
+    </script>
+</body>
+</html>

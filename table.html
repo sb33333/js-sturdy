@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            let $addRow = $("#addRow");
+            let $table = $("#box>tbody");
+            $addRow.on("click", function() {
+                let $tableRow = $("<tr id=row" + $table.children().length + "></tr>");
+                let $tableData = $("<td><input type='checkbox' name='deleteYN' value='num"+ $table.children().length + "'></td><td>" + $table.children().length + "</td><td>data</td>");
+                $tableRow.append($tableData);
+                $table.append($tableRow);
+            });
+
+            $("#send").on("click", function() {
+                $("#dataTable").submit();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="addRow">행 추가</button>
+    <button id="send">send</button>
+    <form action="/send" method="POST" id="dataTable">
+        <table id="box">
+            <tr>
+                <th><input type="checkbox" name="deleteYN" id="headerCheckBox"></th>
+                <th>#1</th>
+                <th>#2</th>
+            </tr>
+            
+
+        </table>
+    </form>
+</body>
+</html>

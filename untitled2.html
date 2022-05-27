@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+
+        td:hover {
+            background-color: blue;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="player"></p>
+
+    <!-- <table>
+        <tbody class="gameTable">
+            
+            
+        </tbody>
+    </table> -->
+    <table>
+        <tbody class="gameTable">
+            <tr><td data-x="0" data-y="0"></td><td data-x="0" data-y="1"></td><td data-x="0" data-y="2"></td><td data-x="0" data-y="3"></td><td data-x="0" data-y="4"></td></tr><tr><td data-x="1" data-y="0"></td><td data-x="1" data-y="1"></td><td data-x="1" data-y="2" data-mark="O" class="clicked">O</td><td data-x="1" data-y="3" data-mark="O" class="clicked">O</td><td data-x="1" data-y="4"></td></tr><tr><td data-x="2" data-y="0" data-mark="O" class="clicked">O</td><td data-x="2" data-y="1" data-mark="O" class="clicked">O</td><td data-x="2" data-y="2" data-mark="O" class="clicked">O</td><td data-x="2" data-y="3" data-mark="O" class="clicked">O</td><td data-x="2" data-y="4" data-mark="O" class="clicked">O</td></tr><tr><td data-x="3" data-y="0"></td><td data-x="3" data-y="1" data-mark="O" class="clicked">O</td><td data-x="3" data-y="2" data-mark="O" class="clicked">O</td><td data-x="3" data-y="3" data-mark="O" class="clicked">O</td><td data-x="3" data-y="4"></td></tr><tr><td data-x="4" data-y="0" data-mark="O" class="clicked">O</td><td data-x="4" data-y="1"></td><td data-x="4" data-y="2"></td><td data-x="4" data-y="3"></td><td data-x="4" data-y="4"></td></tr>
+            
+        </tbody>
+    </table>
+
+    <script>
+        let gameTable = document.getElementsByClassName("gameTable")[0];
+        let turn;
+        let size = 5;
+        let cellMatrix = new Map();
+        
+        
+        let createTable = function (tableBody, x) {
+            for (let i = 0; i < x; i++) {
+                let row = document.createElement("tr");
+                for (let j = 0; j < x; j++) {
+                    let col = document.createElement("td");
+                    col.setAttribute("data-x", i);
+                    col.setAttribute("data-y", j);
+                    row.appendChild(col);
+                    let key = String(i)+String(j);
+                    cellMatrix.set(key, col);
+                }
+                tableBody.append(row);
+            }
+        };
+
+        gameTable.addEventListener("click", function(event) {
+            
+            var cell = event.target;
+            if(cell.tagName != 'TD') {return;}
+            if(!cell.classList.contains("clicked")) {
+                event.target.setAttribute("data-mark", "O");
+                event.target.innerHTML = "O";
+                event.target.classList.add("clicked");
+            } else {
+
+            }
+            
+            
+            
+        });
+        let mark;
+        let clicked = 0;
+        let myArr = [];
+        function getNextKey (x, y){
+            return String(x) + String(y);
+        }
+
+        function checkCell(cell, arr) {
+            if (cell == undefined) {
+                return;
+            }
+            var x = parseInt(cell.dataset.x);
+            var y = parseInt(cell.dataset.y);
+            var nextKey = getNextKey(x+1, y);
+            
+            if (cell.dataset) {
+                clicked++;
+            }
+            checkBottom(cellMatrix.get(nextKey));
+        }
+
+        
+        
+
+        
+    </script>
+</body>
+</html>
